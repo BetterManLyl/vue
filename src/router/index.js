@@ -13,25 +13,27 @@ export default new Router({
     {
       path: '/',
       name: 'first',
-      component: First
-    },
-    {
-      path: '/a',
-      name: 'a',
-      component: A,
+      component: First,
       children: [{
+        path: '/a',
+        name: 'a',
+        component: A
+      },
+      {
         path: '/A1',
         component: A1
+      },
+      //子路由的实现，注意子路由 同一个页面显示父页面和子页面
+      {
+        path: '/b',
+        name: 'b',
+        component: B,
+        children: [{
+          path: '/B1',
+          component: B1
+        }]
       }]
     },
-    {
-      path: '/b',
-      name: 'b',
-      component: B,
-      children: [{
-        path: '/B1',
-        component: B1
-      }]
-    },
+
   ]
 })
