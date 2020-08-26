@@ -5,7 +5,7 @@ import First from '@/components/first'
 import A from '@/components/a'
 import B from '@/components/b'
 import A1 from '@/components/a1'
-
+import B1 from '@/components/b1'
 Vue.use(Router)
 
 export default new Router({
@@ -27,7 +27,11 @@ export default new Router({
     {
       path: '/b',
       name: 'b',
-      component: B
+      component: B,
+      children: [{
+        path: '/B1',
+        component: B1
+      }]
     },
   ]
 })
