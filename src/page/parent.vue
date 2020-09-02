@@ -1,0 +1,55 @@
+<template>
+  <div>
+    <h1>我是父组件，下面是我的子组件</h1>
+    <!--  :  是v-bind的简写-->
+    <!-- <childSon :username=username v-bind:age=age :firstname=firstname></childSon> -->
+    <!--传入一个对象-->
+    <childSon v-bind="obj" @getMsg="getNum"></childSon>
+    <p>这是子组件传过来的消息{{num}}</p>
+    <button @click="visable">显示</button>
+    <button @click="invisable">隐藏</button>
+    <mydialog  class="test" v-show="dialog_visable"></mydialog>
+  </div>
+</template>
+
+<script>
+import childSon from "../components/child01";
+import mydialog from "../components/mydialog";
+
+export default {
+  data() {
+    return {
+      // username:"lyl",
+      // firstname:"cml",
+      // age:16
+      //传入一个对象，也可以在子组件拿到数据
+      obj: {
+        username: "lyl",
+        age: 18,
+        firstname: "cml",
+      },
+      num: 13,
+      dialog_visable: false,
+    };
+  },
+  components: {
+    //这个名称可以不与文件名相同，但是要跟import 一样，布局里面引用也是使用该名称
+    childSon,
+    mydialog,
+  },
+  methods: {
+    getNum: function (num) {
+      this.num = num;
+      console.log("接收到了子组件的消息" + num);
+    },
+    visable() {
+      this.dialog_visable = true;
+    },
+    invisable() {
+      this.dialog_visable = false;
+    },
+  },
+};
+</script>
+<style  scoped>
+</style>

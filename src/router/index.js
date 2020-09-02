@@ -6,10 +6,51 @@ import A from '@/components/a'
 import B from '@/components/b'
 import A1 from '@/components/a1'
 import B1 from '@/components/b1'
-Vue.use(Router)
+import ERROR from '@/components/error'
+import VueRouter from 'vue-router'
+import testpage from '../page/testpage'
+import parent from '../page/parent'
+Vue.use(VueRouter)
 
-export default new Router({
-  routes: [
+// const routes = [
+//   {
+//     path: '/',
+//     name: 'first',
+//     component: First,
+//     children: [{
+//       path: '/a',
+//       name: 'a',
+//       component: A
+//     },
+//     {
+//       path: '/A1', 
+//       component: A1
+//     },
+//     {
+//       path: '/error',
+//       name: "haha",
+//       component: ERROR,
+//     },
+//     //子路由的实现，注意子路由 同一个页面显示父页面和子页面
+//     {
+//       path: '/b',
+//       name: 'b',
+//       component: B,
+//       children: [{
+//         path: '/B1',
+//         component: B1
+//       }]
+//     }]
+//   },
+
+// ]
+
+// const routertest = new VueRouter({
+//   routers
+// })
+
+export default new VueRouter({
+  routes:[
     {
       path: '/',
       name: 'first',
@@ -20,8 +61,21 @@ export default new Router({
         component: A
       },
       {
-        path: '/A1',
+        path: '/A1', 
         component: A1
+      },
+      {
+        path: '/testpage', 
+        component: testpage
+      },
+      {
+        path: '/parent', 
+        component: parent
+      },
+      {
+        path: '/error',
+        name: "haha",
+        component: ERROR,
       },
       //子路由的实现，注意子路由 同一个页面显示父页面和子页面
       {
@@ -34,6 +88,6 @@ export default new Router({
         }]
       }]
     },
-
+  
   ]
 })
