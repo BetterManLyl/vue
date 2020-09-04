@@ -1,9 +1,16 @@
 <template>
-  <div class="sub-contain">这是一个公共的弹框</div>
+  <div class="sub-contain">
+    <p>这是一个公共的弹框</p>
+      <h1>{{title}}</h1>
+  </div>
 </template>
 <script>
 export default {
   name: "mydialog",
+  props: {
+    title: String,
+  },
+  
 };
 </script>
 <style scoped>
@@ -33,6 +40,4 @@ export default {
   display: flex;
   align-items: center;
 }
-
-
 </style>

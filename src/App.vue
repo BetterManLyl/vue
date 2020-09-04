@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" />
+    <!-- <img src="./assets/logo.png" /> -->
     <!-- <counter></counter>
 <my-componetn></my-componetn> -->
     <router-view /><!--通过router注入模板-->

@@ -6,9 +6,10 @@
     <h1 v-text="localnum+'!'">你好</h1>
     <h1>{{localnum+"!"}}你好</h1>
     <p v-html="html"></p>
-    <img v-show="isShow" src="../assets/logo.png" />
+    <!-- <img v-show="isShow" src="../assets/logo.png" /> -->
     <p v-if="isShow">123</p>
     <p v-else-if="!isShow">456</p>
+    <img :src="url" :title="imageTitle+'!!!'">
   </div>
 </template>
 
@@ -21,6 +22,8 @@ export default {
       localnum: 123,
       html: "<a href='http://www.baidu.com'>百度</a>",
       isShow: true,
+      url: require("../assets/logo.png"),
+      imageTitle:"你好"
     };
   },
   computed: {
@@ -29,8 +32,8 @@ export default {
     },
   },
   watch: {
-    localnum () {
-      console.log('改变了')
+    localnum() {
+      console.log("改变了");
     },
   },
   props: {
@@ -49,7 +52,7 @@ export default {
       // console.log(this.localnum);
       // this.testnum = this.localnum;
       // Msg.$emit("num", this.localnum);
-      this.localnum="123"
+      this.localnum = "123";
       this.$emit("addNum", this.addNum);
     },
   },

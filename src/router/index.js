@@ -10,6 +10,8 @@ import ERROR from '@/components/error'
 import VueRouter from 'vue-router'
 import testpage from '../page/testpage'
 import parent from '../page/parent'
+import slot from '../page/slot'
+import dynamicStyle from '../page/dynamicStyle'
 Vue.use(VueRouter)
 
 // const routes = [
@@ -55,11 +57,7 @@ export default new VueRouter({
       path: '/',
       name: 'first',
       component: First,
-      children: [{
-        path: '/a',
-        name: 'a',
-        component: A
-      },
+      children: [
       {
         path: '/A1', 
         component: A1
@@ -71,6 +69,14 @@ export default new VueRouter({
       {
         path: '/parent', 
         component: parent
+      },
+      {
+        path: '/slot', 
+        component: slot
+      },
+      {
+        path: '/dynamicStyle', 
+        component: dynamicStyle
       },
       {
         path: '/error',
@@ -86,7 +92,12 @@ export default new VueRouter({
           path: '/B1',
           component: B1
         }]
-      }]
+      }],
+    },
+    {
+      path: '/a',
+      name: 'a',
+      component: A
     },
   
   ]

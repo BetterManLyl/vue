@@ -3,12 +3,21 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
+//导入store
+import store from '../src/store'
+// import dialog from '../src/common/js/dialog'
 
+//配置axios 全局使用  $后的名字为自定义
+Vue.prototype.$http = axios
 Vue.config.productionTip = false
+
+// Vue.use(dialog);
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',//app的实例，找到index.html id为“app”的
+  store,//使用store
   router,
   components: { App },//app的组件
   template: '<App/>'
