@@ -6,6 +6,9 @@
     <!--active的引号 可加 也可以不加-->
     <button :class="{'active':isActive==index}" @click="changeStyle">点击修改样式</button>
     <p :class="{textColor:isRed,background:isActive}">绑定并判断多个样式</p>
+
+    <!--注意  这里的单引号 不能去掉-->
+    <p :class="[isActive?'style1':'style2']">通过三元运算符判断使用样式</p>
   </div>
 </template>
 
@@ -24,11 +27,18 @@ export default {
       this.isActive = !this.isActive;
     },
   },
+  computed: {},
 };
 </script>
 <style >
 .background {
   width: 200px;
+}
+.style1 {
+  color: red;
+}
+.style2 {
+  color: purple;
 }
 .margin {
   margin-top: 100px;

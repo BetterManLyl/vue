@@ -9,6 +9,7 @@
     <p>{{user.username}}</p>
     <!--使用v-bind和 v-on实现v-model-->
     <input
+      ref="testref"
       @input="handleInput($event)"
       type="text"
       placeholder="how are you"
@@ -18,6 +19,7 @@
     <input v-model="user.username" placeholder="请输入" />
     <input type="checkbox" v-model="isCheck" />
     <p>{{'输入的内容是：'+message}}</p>
+    <loading></loading>
   </div>
 </template>
 
@@ -27,6 +29,7 @@ export default {
   data() {
     return {
       num: 13,
+      data: 56,
       user: {
         username: "lyl",
         sex: "男",
@@ -102,11 +105,38 @@ export default {
    * 方法体
    */
   methods: {
+    testPromise(data) {
+      return new Promise(function (resolve, reject) {
+        if (data > 5) {
+          console.log("Promise执行");
+          resolve(data);
+        } else {
+          reject("数据都是不大于5");
+        }
+      });
+    },
+
+    function1(data) {
+      var _this = this;
+      console.log("function1执行");
+      this.testPromise(data)
+        .then(function (num) {
+          console.log("then方法执行");
+        })
+        .catch(function (num) {
+          console.log("catch方法执行" + num);
+        });
+    },
     sendMsg() {
+      this.$router.push({path:'/A1'})
+     this.$refs.testref.value='89898989'
+      this.function1(2);
+      this.$mydialog("你好", "测试log", 3000);
+
       this.$emit("getMsg", this.num++);
       if (this.isActive) {
         this.isActive = false;
-      }else{
+      } else {
         this.isActive = true;
       }
     },

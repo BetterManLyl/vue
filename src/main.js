@@ -4,15 +4,24 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+
+
 //导入store
 import store from '../src/store'
-// import dialog from '../src/common/js/dialog'
+import dialog from '../src/common/js/dialog'
+//使用全局的loading
+import loading from '../src/common/components/loading/loading'
+import ElementUi from 'element-ui'
 
 //配置axios 全局使用  $后的名字为自定义
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
-// Vue.use(dialog);
+//use
+Vue.use(loading)
+Vue.use(dialog);
+Vue.use(ElementUi);
+
 
 /* eslint-disable no-new */
 new Vue({
@@ -47,7 +56,7 @@ new Vue({
 // 	data:function(){
 // 			return {count:0}
 // 			},
- 
+
 // //template 是模板的意思，在 html 里面是一个可以同时控制多个子元素的父元素。在这里定义了组件的内容
 // 	template:'<button v-on:click="count++">点击计算点击次数：{{count}}次</button>'
 // })

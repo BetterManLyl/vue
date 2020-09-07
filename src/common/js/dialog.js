@@ -1,8 +1,12 @@
+
+
+//https://www.cnblogs.com/Kiddzz/p/8471521.html 参考博客
+import Vue from "vue";
 import mydialog from '../components/mydialog'
-const Toast = {};
-// 注册Toast
-Toast.install = function (Vue) {
-    console.log('进来了');
+
+// 注册dialog
+mydialog.install = function (Vue) {
+    console.log('install');
     // 生成一个Vue的子类
     // 同时这个子类也就是组件
     const ToastConstructor = Vue.extend(mydialog)
@@ -16,14 +20,25 @@ Toast.install = function (Vue) {
 
     // 通过Vue的原型注册一个方法
     // 让所有实例共享这个方法 
-    Vue.prototype.$toast = (msg, duration = 1500) => {
-        instance.message = msg;
-        instance.visible = true;
+    //后面相当于三个参数，可自己定义
+    // Vue.prototype.$mydialog = (msg,log, duration) => {
+    //     instance.message = msg;
+    //     instance.isVisable = true;
+    //     console.log(log)
+    //     setTimeout(() => {
+    //         instance.isVisable = false;
+    //     }, duration);
+    // }
 
+
+    Vue.prototype.$mydialog=function(msg,log, duration){
+        instance.message = msg;
+        instance.isVisable = true;
+        console.log(log)
         setTimeout(() => {
-            instance.visible = false;
+            instance.isVisable = false;
         }, duration);
     }
 }
 
-export default Toast
+export default mydialog
