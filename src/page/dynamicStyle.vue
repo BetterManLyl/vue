@@ -9,6 +9,11 @@
 
     <!--注意  这里的单引号 不能去掉-->
     <p :class="[isActive?'style1':'style2']">通过三元运算符判断使用样式</p>
+
+    <!--{}里面跟着的是对象-->
+    <!-- <p v-bind:class="{"key:value key:value"}"></p> -->
+    <!-- <p v-bind:class="{类名1：boolean , 类名2:boolean}"></p> -->
+    <p :class="{class1:isClass1,class2:isClass2}">你好</p>
   </div>
 </template>
 
@@ -20,11 +25,14 @@ export default {
       ismargin: true,
       isRed: true,
       index: 0,
+      isClass1: false,
+      isClass2: true,
     };
   },
   methods: {
     changeStyle() {
       this.isActive = !this.isActive;
+      new Promise(function (resolve, reject) {});
     },
   },
   computed: {},
@@ -48,5 +56,11 @@ export default {
 }
 .active {
   width: 200px;
+}
+.class1 {
+  color: red;
+}
+.class2 {
+  color: yellow;
 }
 </style>

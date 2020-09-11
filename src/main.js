@@ -4,7 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
-
+import Vconsole from 'vconsole';
+let vConsole = new Vconsole();
+export default vConsole
 
 //导入store
 import store from '../src/store'

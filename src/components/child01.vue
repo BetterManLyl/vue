@@ -114,6 +114,7 @@ export default {
           reject("数据都是不大于5");
         }
       });
+    
     },
 
     function1(data) {
@@ -128,9 +129,9 @@ export default {
         });
     },
     sendMsg() {
-      this.$router.push({path:'/A1'})
-     this.$refs.testref.value='89898989'
-      this.function1(2);
+      // this.$router.push({ path: "/A1" });
+      this.$refs.testref.value = "89898989";
+      this.function1(12);
       this.$mydialog("你好", "测试log", 3000);
 
       this.$emit("getMsg", this.num++);

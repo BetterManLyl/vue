@@ -12,6 +12,7 @@ import testpage from '../page/testpage'
 import parent from '../page/parent'
 import slot from '../page/slot'
 import dynamicStyle from '../page/dynamicStyle'
+import table from '../page/table'
 Vue.use(VueRouter)
 
 // const routes = [
@@ -77,6 +78,10 @@ export default new VueRouter({
       {
         path: '/dynamicStyle', 
         component: dynamicStyle
+      },
+      {
+        path: '/table', 
+        component: table
       },
       {
         path: '/error',

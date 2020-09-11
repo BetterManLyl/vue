@@ -10,7 +10,10 @@
     <button @click="visable">显示</button>
     <button @click="invisable">隐藏</button>
     <mydialog class="test" v-show="dialog_visable" :title="title"></mydialog>
-    <p @click="show=!show">点我</p>
+    <p v-on:click.stop="show=!show">点我</p>
+    <p v-for="item in list">{{item}}</p>
+    <p v-bind:class="{active:isActive}">你好</p>
+    <p :class="{active:isActive}">你好</p>
   </div>
 </template>
 
@@ -34,6 +37,8 @@ export default {
       dialog_visable: false,
       title: "你好",
       show: false,
+      list: ["1", "2", "3"],
+      isActive: true,
     };
   },
   watch: {
@@ -59,7 +64,17 @@ export default {
       this.dialog_visable = false;
     },
   },
+  created: function () {
+    console.log("created");
+  },
+  beforeCreate: function () {},
+  computed: function () {
+    console.log("computed");
+  },
 };
 </script>
-<style  scoped>
+<style >
+.active {
+  color: red;
+}
 </style>
