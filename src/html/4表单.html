@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+</head>
+
+<body>
+    <div>
+        <!--表单组成  表单域、表单控件、提示信息 3部分-->
+        <!--action：提交地址 method：提交方法  name：表单域名称-->
+        <img src="image/input_type.jpg">
+        <form action="demo.php" method="GET" name="name1">
+            <!--各种表单控件-->
+            <!--input name:定义表单元素的名称 value：定义表单元素的值-->
+            <!--注意 使用label标签，需要for=“” 和input的id=“”对应-->
+            <label for="username">用户名：</label>
+            <input maxlength="6" id="username" placeholder="请输入用户名" name="username" type="text" /><br>
+            密码：<input placeholder="请输入密码" type="password" name="password" /><br>
+            <!--单选和复选框 必须有同一个name值-->
+            性别: <label for="man"> 男 </label>
+            <input type="radio" id="man" checked name="sex" value="男" />
+
+            <label for="woman">女</label>
+            <input name="sex" id="woman" value="女" type="radio" /><br>
+            爱好: 吃饭<input type="checkbox" checked name="hobby"> 睡觉<input name="hobby" type="checkbox">打豆豆<input
+                name="hobby" type="checkbox">
+            <br>
+            <input type="button" value="获取验证码"><br>
+
+            上传头像：<input type="file"><br>
+
+            <input type="submit" value="请提交">
+
+            <input type="reset" value="重置">
+
+            <br>
+            <!-- 下拉标签 -->
+            籍贯：
+            <select>
+                <option>北京</option>
+                <option selected>山东</option>
+                <option>安徽</option>
+                <option>湖北</option>
+            </select>
+
+            <br>
+            今日反馈<textarea>你好你叫什么名字</textarea>
+        </form>
+
+    </div>
+</body>
+
+</html>
