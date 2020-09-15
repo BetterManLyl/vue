@@ -5,29 +5,105 @@ import First from '@/components/first'
 import A from '@/components/a'
 import B from '@/components/b'
 import A1 from '@/components/a1'
+import B1 from '@/components/b1'
+import ERROR from '@/components/error'
+import VueRouter from 'vue-router'
+import testpage from '../page/testpage'
+import parent from '../page/parent'
+import slot from '../page/slot'
+import dynamicStyle from '../page/dynamicStyle'
+import table from '../page/table'
+Vue.use(VueRouter)
 
-Vue.use(Router)
+// const routes = [
+//   {
+//     path: '/',
+//     name: 'first',
+//     component: First,
+//     children: [{
+//       path: '/a',
+//       name: 'a',
+//       component: A
+//     },
+//     {
+//       path: '/A1', 
+//       component: A1
+//     },
+//     {
+//       path: '/error',
+//       name: "haha",
+//       component: ERROR,
+//     },
+//     //子路由的实现，注意子路由 同一个页面显示父页面和子页面
+//     {
+//       path: '/b',
+//       name: 'b',
+//       component: B,
+//       children: [{
+//         path: '/B1',
+//         component: B1
+//       }]
+//     }]
+//   },
 
-export default new Router({
-  routes: [
+// ]
+
+// const routertest = new VueRouter({
+//   routers
+// })
+
+export default new VueRouter({
+  routes:[
     {
       path: '/',
       name: 'first',
-      component: First
+      component: First,
+      children: [
+      {
+        path: '/A1', 
+        component: A1
+      },
+      {
+        path: '/testpage', 
+        component: testpage
+      },
+      {
+        path: '/parent', 
+        component: parent
+      },
+      {
+        path: '/slot', 
+        component: slot
+      },
+      {
+        path: '/dynamicStyle', 
+        component: dynamicStyle
+      },
+      {
+        path: '/table', 
+        component: table
+      },
+      {
+        path: '/error',
+        name: "haha",
+        component: ERROR,
+      },
+      //子路由的实现，注意子路由 同一个页面显示父页面和子页面
+      {
+        path: '/b',
+        name: 'b',
+        component: B,
+        children: [{
+          path: '/B1',
+          component: B1
+        }]
+      }],
     },
     {
       path: '/a',
       name: 'a',
-      component: A,
-      children: [{
-        path: '/A1',
-        component: A1
-      }]
+      component: A
     },
-    {
-      path: '/b',
-      name: 'b',
-      component: B
-    },
+  
   ]
 })
