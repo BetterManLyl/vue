@@ -13,6 +13,8 @@ import parent from '../page/parent'
 import slot from '../page/slot'
 import dynamicStyle from '../page/dynamicStyle'
 import table from '../page/table'
+import store from '../page/store'
+import onclick from '../page/onclick'
 Vue.use(VueRouter)
 
 // const routes = [
@@ -72,6 +74,10 @@ export default new VueRouter({
         component: parent
       },
       {
+        path: '/onclick', 
+        component: onclick
+      },
+      {
         path: '/slot', 
         component: slot
       },
@@ -82,6 +88,9 @@ export default new VueRouter({
       {
         path: '/table', 
         component: table
+      },{
+        path: '/store', 
+        component: store
       },
       {
         path: '/error',

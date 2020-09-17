@@ -2,7 +2,7 @@
   <div>
     表格
     <div>
-      <table border="1px">
+      <table cellpadding="1px" border="1px">
         <!--这是表中的“行”。每一行是一个tr（table row）。-->
         <tr>
           <!--这是表头，也就是每一列的标题（table head）。-->
@@ -45,11 +45,12 @@ export default {
       ],
     };
   },
-  methods:{
-      goBack(){
-          console.log('返回');
-          this.$router.go(-1)
-      }
-  }
+  methods: {
+    goBack() {
+      console.log(this.data.list);
+      console.log("返回");
+      this.$router.go(-1);
+    },
+  },
 };
 </script>

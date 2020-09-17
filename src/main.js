@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import Vconsole from 'vconsole';
+import test from './common/js/test'
 let vConsole = new Vconsole();
 export default vConsole
 
@@ -18,6 +19,8 @@ import ElementUi from 'element-ui'
 //配置axios 全局使用  $后的名字为自定义
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
+
+Vue.prototype.$test = test
 
 //use
 Vue.use(loading)

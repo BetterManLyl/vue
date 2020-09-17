@@ -9,6 +9,9 @@
     <router-link to="/slot">插槽</router-link>
     <router-link to="/dynamicStyle">动态绑定样式</router-link>
     <router-link to="/table">表格</router-link>
+    <br>
+    <router-link to="/store">store测试</router-link>
+     <router-link to="/onclick">事件监听</router-link>
     <p @click="goPage" v-if="goBack">返回上一页</p>
 
     <router-view></router-view>
