@@ -27,7 +27,6 @@ Vue.use(loading)
 Vue.use(dialog);
 Vue.use(ElementUi);
 
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',//app的实例，找到index.html id为“app”的

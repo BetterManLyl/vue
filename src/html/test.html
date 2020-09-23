@@ -75,8 +75,10 @@
         })
         var app6 = new Vue({
             el: '#app-6',
-            data: {
-                message: "hello vue"
+            data:function() {
+                return{
+                    message: "hello vue"
+                }
             },
             //钩子函数 生命周期
             created: function () {
@@ -134,7 +136,7 @@
         })
         var app = new Vue({
             el: 'div',
-            data: {
+            data:function() {
                 message: '你好'
             }
         })

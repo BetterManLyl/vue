@@ -11,7 +11,7 @@
 
     <span>v-on的修饰符</span>
 
-    <div @click="click_06()">
+    <div @click="click_div()">
       11111
      <!-- 冒泡 -->
       <button @click.stop="click_07()">按钮6</button>
@@ -42,11 +42,11 @@ export default {
     click_05() {
       console.log("click_05" + event);
     },
-    click_06() {
-      console.log("click_06");
+    click_div() {
+      console.log("click_div");
     },
     click_07() {
-      console.log("click_07");
+      console.log("click_06");
     },
   },
 };

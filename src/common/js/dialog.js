@@ -31,7 +31,7 @@ mydialog.install = function (Vue) {
     // }
 
 
-    Vue.prototype.$mydialog=function(msg,log, duration){
+    Vue.prototype.$mydialog = function (msg, log, duration) {
         instance.message = msg;
         instance.isVisable = true;
         console.log(log)

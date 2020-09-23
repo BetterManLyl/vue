@@ -15,6 +15,7 @@ import dynamicStyle from '../page/dynamicStyle'
 import table from '../page/table'
 import store from '../page/store'
 import onclick from '../page/onclick'
+import v_key from '../page/v_key'
 Vue.use(VueRouter)
 
 // const routes = [
@@ -55,64 +56,67 @@ Vue.use(VueRouter)
 // })
 
 export default new VueRouter({
-  routes:[
+  routes: [
     {
       path: '/',
       name: 'first',
       component: First,
       children: [
-      {
-        path: '/A1', 
-        component: A1
-      },
-      {
-        path: '/testpage', 
-        component: testpage
-      },
-      {
-        path: '/parent', 
-        component: parent
-      },
-      {
-        path: '/onclick', 
-        component: onclick
-      },
-      {
-        path: '/slot', 
-        component: slot
-      },
-      {
-        path: '/dynamicStyle', 
-        component: dynamicStyle
-      },
-      {
-        path: '/table', 
-        component: table
-      },{
-        path: '/store', 
-        component: store
-      },
-      {
-        path: '/error',
-        name: "haha",
-        component: ERROR,
-      },
-      //子路由的实现，注意子路由 同一个页面显示父页面和子页面
-      {
-        path: '/b',
-        name: 'b',
-        component: B,
-        children: [{
-          path: '/B1',
-          component: B1
-        }]
-      }],
+        {
+          path: '/A1',
+          component: A1
+        },
+        {
+          path: '/testpage',
+          component: testpage
+        },
+        {
+          path: '/parent',
+          component: parent
+        },
+        {
+          path: '/onclick',
+          component: onclick
+        }, {
+          path: '/v_key',
+          component: v_key
+        },
+        {
+          path: '/slot',
+          component: slot
+        },
+        {
+          path: '/dynamicStyle',
+          component: dynamicStyle
+        },
+        {
+          path: '/table',
+          component: table
+        }, {
+          path: '/store',
+          component: store
+        },
+        {
+          path: '/error',
+          name: "haha",
+          component: ERROR,
+        },
+        //子路由的实现，注意子路由 同一个页面显示父页面和子页面
+        {
+          path: '/b',
+          name: 'b',
+          component: B,
+          children: [{
+            path: '/B1',
+            component: B1
+          }]
+        }],
     },
     {
       path: '/a',
       name: 'a',
       component: A
     },
-  
+
   ]
 })
