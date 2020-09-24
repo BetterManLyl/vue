@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top :50px">
+  <div ref="hello" style="margin-top: 50px">
     <!-- <p v-if="isShow">你好</p>
     <p v-else>你叫什么名字</p>-->
 
@@ -32,11 +32,14 @@
     </span>
     <br />
     <button @click="addItem()">添加元素</button>
-    <p v-for="(item,i) in list" :key="i">第{{i+1}}个{{item.name}}</p>
+    <p v-for="(item, i) in list" :key="i">第{{ i + 1 }}个{{ item.name }}</p>
   </div>
 </template>
 <script>
+import myMinix from "../assets/js/minix.js";
+
 export default {
+  mixins: [myMinix],
   data() {
     return {
       isShow: true,
@@ -64,13 +67,47 @@ export default {
     switch_() {
       this.isShow = !this.isShow;
     },
-    addItem(){
-      let item_01={key:5,name:'qq'}
+    addItem() {
+      let item_01 = { key: 5, name: "qq" };
       //push是往最后的位置添加
       // this.list.push(item_01)
       //unshift在最前的位置添加
       this.list.unshift(item_01);
-    }
+    },
+  },
+
+  mounted() {
+    console.log(333);
+    console.log("ref:" + this.$refs["hello"]);
+    this.$nextTick(() => {
+      console.log(444);
+      console.log(this.$refs["hello"]);
+    });
+  },
+  created() {
+    this.test1111();
+    //1、普通函数
+    var test = function (a, b) {
+      return a + b;
+    };
+
+    //箭头函数 有参数
+    var test1 = (a, b) => {
+      return a + b;
+    };
+    //无参数
+    var test2 = () => {};
+    //
+    (a, b) => {
+      return a + b;
+    };
+    console.log(111);
+    console.log(this.$refs["hello"]);
+    this.$nextTick(() => {
+      console.log(222);
+      console.log(this.$refs["hello"]);
+    });
+   
   },
 };
 </script>

@@ -16,6 +16,8 @@ import table from '../page/table'
 import store from '../page/store'
 import onclick from '../page/onclick'
 import v_key from '../page/v_key'
+import bookshop from '../page/bookshop'
+
 Vue.use(VueRouter)
 
 // const routes = [
@@ -80,6 +82,10 @@ export default new VueRouter({
         }, {
           path: '/v_key',
           component: v_key
+        },
+        {
+          path: '/bookshop',
+          component: bookshop
         },
         {
           path: '/slot',

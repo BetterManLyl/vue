@@ -13,6 +13,7 @@
     <router-link to="/store">store测试</router-link>
     <router-link to="/onclick">事件监听</router-link>
     <router-link to="/v_key">条件选择</router-link>
+     <router-link to="/bookshop">购物车</router-link>
     <p @click="goPage" v-if="goBack">返回上一页</p>
 
     <router-view></router-view>
