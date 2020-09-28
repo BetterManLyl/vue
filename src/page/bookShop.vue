@@ -1,7 +1,6 @@
 <template>
   <div>
     购物车
-
     <table>
       <thead>
         <tr>
@@ -80,8 +79,33 @@ export default {
       //     countPrice += this.books[i].price * this.books[i].count;
       //     console.log('count:'+countPrice);
       //   }
-      for (let i in this.books) {
-        countPrice += this.books[i].price * this.books[i].count;
+      // for (let i in this.books) {
+      //   countPrice += this.books[i].price * this.books[i].count;
+      // }
+
+      //1、filter高级函数
+      let num = [100, 2, 30, 50, 40, 200, 400];
+      //数组遍历 根据遍历条件 返回新的数组
+      let newnum = num.filter(function (i) {
+        return i < 100;
+      });
+      console.log("newnum:" + newnum);
+
+      //2、map函数的使用
+      let new2nums = newnum.map(function (n) {
+        return n * 2;
+      });
+      console.log("new2nums:" + new2nums);
+
+      let new3num = new2nums.reduce(
+        function (previousValue,n) {
+          return previousValue + n;
+        },
+        0
+      );
+      console.log("new3num:" + new3num);
+      for (let item of this.books) {
+        countPrice += item.price * item.count;
       }
       return countPrice;
     },
@@ -108,8 +132,10 @@ export default {
     },
   },
   created() {},
+  //过滤
   filters: {
     showPrice(value) {
+      //保留两位小数
       return "￥" + value.toFixed(2);
     },
   },
