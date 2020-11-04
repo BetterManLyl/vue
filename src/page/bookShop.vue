@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in books">
+        <tr v-for="item in books" :key="item.id">
           <td>{{ item.id }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.date }}</td>
@@ -32,6 +32,7 @@
     </table>
 
     <h1>总价{{ countPrice | showPrice }}</h1>
+    <button @click="clearList()">清空集合</button>
   </div>
 </template>
 
@@ -97,12 +98,9 @@ export default {
       });
       console.log("new2nums:" + new2nums);
 
-      let new3num = new2nums.reduce(
-        function (previousValue,n) {
-          return previousValue + n;
-        },
-        0
-      );
+      let new3num = new2nums.reduce(function (previousValue, n) {
+        return previousValue + n;
+      }, 0);
       console.log("new3num:" + new3num);
       for (let item of this.books) {
         countPrice += item.price * item.count;
@@ -114,6 +112,9 @@ export default {
     //保留两位小数
     saveTwoPoint(value) {
       return "￥" + value.toFixed(2);
+    },
+    click() {
+      return false;
     },
     //加
     add(item) {
@@ -129,6 +130,13 @@ export default {
     //移除
     remove(item) {
       this.books.splice(item, 1);
+    },
+
+    clearList() {
+      let testList = [];
+      if (testList || testList == []) {
+        console.log("数组空");
+      }
     },
   },
   created() {},

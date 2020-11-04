@@ -1,12 +1,16 @@
 <template>
   <div>
     我是子组件下面是
-    <p>接收来自父组件的消息{{username}}{{age}}{{firstname}}</p>
+    <p>接收来自父组件的消息{{ username }}{{ age }}{{ firstname }}</p>
 
     <button @click="sendMsg()">发送消息给父组件</button>
-    <input type="button" value="点击我修改user里面的username" @click="changeUsername" />
+    <input
+      type="button"
+      value="点击我修改user里面的username"
+      @click="changeUsername"
+    />
     <button @click="requestUrl">点击我使用axios进行网络请求</button>
-    <p>{{user.username}}</p>
+    <p>{{ user.username }}</p>
     <!--使用v-bind和 v-on实现v-model-->
     <input
       ref="testref"
@@ -18,7 +22,13 @@
     <input v-model.lazy="message" placeholder="请输入" />
     <input v-model="user.username" placeholder="请输入" />
     <input type="checkbox" v-model="isCheck" />
-    <p>{{'输入的内容是：'+message}}</p>
+    <p>{{ "输入的内容是：" + message }}</p>
+    <div class="changeList">
+      <p v-for="item in changeList">{{ item.value }}</p>
+    </div>
+     <div class="changeList">
+      <p v-for="item in newList">{{ item.value }}</p>
+    </div>
     <loading></loading>
   </div>
 </template>
@@ -37,6 +47,26 @@ export default {
       },
       message: "你好",
       isCheck: true,
+      changeList: [
+        {
+          key: "cml",
+          value: "陈曼丽",
+        },
+        {
+          key: "lyl",
+          value: "李跃龙",
+        },
+        {
+          key: "tb",
+          value: "李糖宝",
+        },
+        {
+          key: "lyy",
+          value: "老爷爷",
+        },
+      ],
+      returnJson: '{"lyl":"李跃龙","cml":"陈曼丽"}',
+      newList:[]
     };
   },
 
@@ -83,7 +113,12 @@ export default {
    * 获取父组件传递过来的值
    */
   props: {
-    // userdata:Object,
+    userdata: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
     username: {
       type: [String, Number], //类型可以是多种
       required: true,
@@ -93,6 +128,7 @@ export default {
       required: true, //必须传值，否则报错
     },
     firstname: String,
+    userage: String,
   },
 
   /**
@@ -100,6 +136,38 @@ export default {
    */
   created: function () {
     console.log("created:" + this.username);
+    console.log("created 2:" + this.userage);
+
+    let _this = this;
+    // this.changeList.filter(function (item) {
+    //   console.log("item:" + item.value);
+    //   // if (item.value.indexOf()) {
+    //   //   newList.push(item);
+    //   // }
+    //   if (_this.returnJson.match(item.key)) {
+    //     this.newList.push(item);
+    //   }
+    // });
+
+let json=JSON.parse(_this.returnJson)
+    for (var key in json) {
+      console.log("key:" + key);
+      for (let item of this.changeList) {
+        if (key.match(item.key)) {
+          this.newList.push(item);
+        }
+      }
+      // this.changeList.filter(function (item) {});
+    }
+    console.log(this.newList.length);
+    let jsontest={
+          key: "test",
+          value: "test",
+    }
+
+this.newList.unshift(jsontest);
+console.log('newList:'+this.newList[0].value);
+
   },
   /**
    * 方法体
@@ -114,7 +182,6 @@ export default {
           reject("数据都是不大于5");
         }
       });
-    
     },
 
     function1(data) {

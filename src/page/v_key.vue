@@ -17,7 +17,29 @@
     <span>
       <button @click="switch_()">切换类型</button>
     </span>
+    <br />
+    <span>
+      <input type="radio" v-model="sex" value="男" /> 男
+      <input type="radio" value="女" v-model="sex" /> 女
+    </span>
+    <p>您选择的是：{{ sex }}</p>
+    <br />
 
+    <span>
+      <input v-model="isAgree" type="checkbox" value="羽毛球" />是否同意
+      <button :disabled="!isAgree">下一步</button>
+    </span>
+    <span>
+      <input v-model="hobbies" type="checkbox" value="羽毛球" />羽毛球
+      <input v-model="hobbies" type="checkbox" value="篮球" />篮球
+      <input v-model="hobbies" type="checkbox" value="排球" />排球
+      <input v-model="hobbies" type="checkbox" value="足球" />足球
+
+      <p >您的选择是：{{hobbies}}</p>
+    </span>
+    <br />
+    <input type="text" v-model="message" />
+    <p>{{ message }}</p>
     <br />
     <span v-show="isShow">
       <label for="username_">用户账号</label>
@@ -43,6 +65,9 @@ export default {
   data() {
     return {
       isShow: true,
+      isAgree: false,
+      sex: "男",
+      hobbies:[],
       list: [
         {
           key: 1,
@@ -61,6 +86,7 @@ export default {
           name: "haha",
         },
       ],
+      message: "",
     };
   },
   methods: {
@@ -107,7 +133,6 @@ export default {
       console.log(222);
       console.log(this.$refs["hello"]);
     });
-   
   },
 };
 </script>
