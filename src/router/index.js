@@ -58,6 +58,8 @@ Vue.use(VueRouter)
 // })
 
 export default new VueRouter({
+  //该模式，地址栏不会有"#"
+  mode:"history",
   routes: [
     {
       path: '/',
