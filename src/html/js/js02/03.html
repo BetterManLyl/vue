@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //字符串截取
+    let test1 = '你好你叫什么名字'
+
+    console.log(test1.slice(1));
+    console.log(test1.substring(1));
+    console.log(test1.substr(1));
+
+
+    console.log(test1.slice(1, 2));
+    console.log(test1.substring(1, 2));
+    console.log(test1.substr(1, 2));
+
+    console.log(test1.slice(-2));
+    console.log(test1.substring(-2));
+    console.log(test1.substr(-2));
+
+    //字符串检索 参数，从第几个开始查
+    console.log(test1.indexOf('你', 4) > -1);
+    console.log(test1.includes('你', 4));
+    test();
+
+    function test() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('执行耗时任务结束')
+        }, 3000);
+      }).then(function (res) {
+        console.log(res);
+      }).catch(function () {
+
+      })
+    }
+
+    //展开语法的使用 ...
+    let arr1 = ['one', 'two']
+    let arr2 = ['three', 'four']
+    console.table([...arr1, ...arr2]);
+
+    function add(num1, num2) {
+      return num1 + num2;
+    }
+
+    function sum(...args) {
+      // let sum = 0;
+      // args.forEach(element => {
+      //   sum += element
+      // });
+      return args.reduce(add)
+    }
+    console.log(sum(1, 2, 3, 4, 5));
+
+    let [name, year] = ['lyl', 30]
+    
+    console.log(name);
+    console.table(Array(5).fill('你好'));
+    
+
+
+    // console.table
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var i = 99;
+    // for (var i = 0; i < 5; i++) {
+    //   console.log('i:' + i);
+    // }
+    for (let i = 0; i < 5; i++) {
+      console.log('i:' + i);
+    }
+    console.log('i:' + i);
+    // new Promise((resolve, reject) => {
+    //     console.log('初始化');
+
+    //     resolve();
+    //   })
+    //   .then(() => {
+    //     throw new Error('有哪里不对了');
+
+    //     console.log('执行「这个」”');
+    //   })
+    //   .catch(() => {
+    //     console.log('执行「那个」');
+    //   })
+    //   .then(() => {
+    //     console.log('执行「这个」，无论前面发生了什么');
+    //   });
+
+
+    // let p = new Promise(function (resolve, reject) {
+    //   reject('失败')
+    // });
+
+    // p.then((data) => {
+
+    //   }, (err) => {
+    //     throw Error('错误')
+    //   })
+    //   .then((data) => {
+
+    //   }, (err) => {
+    //     console.log(err + '自己的err') //走自己的（输出：Error: 错误自己的err）
+    //     throw Error('错误自己抛出的')
+    //   })
+    //   .then((data) => {
+    //     //没有自己的失败处理函数，走catch
+    //   }).catch(e => {
+    //     console.log(e + '公共的err') //输出：Error: 错误自己抛出的公共的err
+    //   })
+
+    // resolve代表成功 reject失败 都是一个函数
+
+    let p = new Promise(function (reslove, reject) {
+
+      //reslove('成功')  //状态由等待变为成功，传的参数作为then函数中成功函数的实参
+
+      reject('失败') //状态由等待变为失败，传的参数作为then函数中失败函数的实参
+
+    })
+
+    //then中有2个参数，第一个参数是状态变为成功后应该执行的回调函数，第二个参数是状态变为失败后应该执行的回调函数。
+
+    p.then((data) => {
+
+      console.log('成功' + data)
+
+    }, (err) => {
+
+      console.log('失败' + err)
+
+    }).catch(function(err){
+      console.log('err:'+err);
+      
+
+    })
+
+  </script>
+</body>
+
+</html>

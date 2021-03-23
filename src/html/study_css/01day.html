@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="contain">
+    <dl>
+      <dt>计算机1</dt>
+      <dd>用来计算的仪器22 ... ...</dd>
+      <dd>用来计算的仪器 ... ...</dd>
+      <dt>显示器</dt>
+      <dd>以视觉方式显示信息的装置 ... ...</dd>
+
+
+    </dl>
+
+    <!--学习后台选择器-->
+    <ol>
+      <li>我是ol的孩子</li>
+      <li>我是ol的孩子</li>
+      <li>我是ol的孩子</li>
+      <li><a href="">你好</a></li>
+    </ol>
+    <ul>
+      <li>我是ul的孩子</li>
+      <li>我是ul的孩子</li>
+      <li>我是ul的孩子</li>
+    </ul>
+
+    <ul class="nav">
+      <li>我是ol的孩子</li>
+      <li>我是ol的孩子</li>
+      <li>我是ol的孩子</li>
+      <li><a href="">你好</a></li>
+    </ul>
+    <ul>
+      <li>我是ul的孩子</li>
+      <li>我是ul的孩子</li>
+      <li>我是ul的孩子</li>
+    </ul>
+
+    <div class="nav1">
+      <a href="">你好</a>
+
+      <p>
+        <a href="">你好</a>
+
+      </p>
+    </div>
+
+    <div class="nav2">
+      <p>熊大</p>
+      <p>熊二</p>
+      <ul>
+        <li>佩奇1</li>
+        <li>佩奇2</li>
+        <li>佩奇3</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+<style>
+  html,
+  body {
+    height: 100%
+  }
+
+  /*子元素选择器*/
+  .nav1>a {
+    color: red;
+  }
+
+  /*后代选择器*/
+  ol li {
+    color: pink;
+  }
+
+  /*并集选择器  用逗号隔开*/
+  .nav2 p,
+  ul li {
+    color: red;
+  }
+
+  .nav li {
+    color: pink;
+  }
+
+  ol li a {
+    color: red;
+  }
+
+  #yz {
+    margin-left: 90px;
+  }
+
+  .contain {
+    width: 100%;
+    height: 100%;
+    float: left;
+  }
+
+  .cell_title_img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .cell_title2 {
+    text-align: justify;
+    vertical-align: 30px;
+  }
+
+  .cell_title3 {
+    display: inline;
+  }
+
+  .bg {
+    width: 100px;
+    height: 100px;
+    float: right;
+    display: flex;
+    position: relative;
+  }
+
+</style>
+
+</html>

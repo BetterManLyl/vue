@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    //清空数组的三种方式
+    var testArray = [1, 2, 3, 4]
+    // testArray=[];
+    // testArray.length=0
+    testArray.splice(0, testArray.length)
+
+    console.log(testArray);
+
+    testArray = [1, 2, 3, 4, 5]
+    //移除指定位置数组元素，并在后面添加元素
+    testArray.splice(2, 1, 9, 11)
+    console.table(testArray);
+
+    let str = "test1,test2"
+    let hd = str.split(',')
+    console.log(str);
+    hd.join('-')
+    console.log(hd);    
+    let test1=[1,2,3,4]
+    //使用...语法将数组合并
+    hd=[...hd,...test1]
+    console.table(hd);
+    
+    
+  </script>
+</body>
+
+</html>

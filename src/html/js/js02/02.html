@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    //传值 传递字符串的时候  传值
+    let a = '1'
+    let b = a;
+    console.log(a, b);
+    b = '3'
+    console.log(a, b);
+
+
+    //传址 在传大数据 对象的时候 传址
+    let e = {
+      name: 'lyl'
+    }
+    let f = e;
+
+    console.log(e, f);
+
+    f.name = 'cml'
+    console.log(e, f);
+
+    let w = 3,
+      r = 5;
+    console.log(w, r);
+
+    let test = '123';
+    let test2 = '111';
+    let test3 = test || test2
+    console.log(test3);
+
+
+    //短路运算符
+    function star(num = 3) {
+      console.log(num);
+      return "*".repeat(num)
+    }
+    console.log(star());
+
+    var a1 = false && 6;
+    console.log(a1); //返回的结果为 false
+
+    let hello = "你好"
+    let name = "你叫什么名字"
+
+//字符串转义与模板自变量使用
+    console.log(`${hello}
+    ${name}`);
+
+  </script>
+
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h4>这是第一个具名插槽</h4>
+  <div class="test">
+    <h4 class="test2">这是第一个具名插槽</h4>
     <slot name="first"></slot>
     <h4>这是第二个具名插槽</h4>
     <slot name="last"></slot>
@@ -15,3 +15,4 @@ export default {
   },
 };
 </script>
+

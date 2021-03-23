@@ -7,7 +7,8 @@
     <h1 @click="testme(msg)">你叫什么名字</h1>
     <p>测试全局变量{{ this.$store.state.count }}</p>
     <router-link to="/">返回</router-link>
-    <router-link to="/A1">转向A1</router-link>
+    <!--动态决定路由名称-->
+    <router-link :to="'A1/' + userId">转向A1</router-link>
     <div v-for="(item, index) in List">
       <span
         ><p>{{ index }}</p>
@@ -39,6 +40,7 @@ export default {
         { key: "two", value: "2" },
         { key: "three", value: "3" },
       ],
+      userId: "lyl",
     };
   },
   methods: {
@@ -64,12 +66,10 @@ export default {
       }
 
       for (let item of this.testList) {
-        if("one"==item.key){
-console.log('哈哈哈哈');
-
+        if ("one" == item.key) {
+          console.log("哈哈哈哈");
         }
-       console.log('item:'+item.key+" "+item.value);
-       
+        console.log("item:" + item.key + " " + item.value);
       }
     },
     submit() {
@@ -111,5 +111,4 @@ console.log('哈哈哈哈');
   // }
 };
 </script>
-<style>
-</style>
+<style></style>

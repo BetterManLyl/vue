@@ -4,7 +4,7 @@
     <!--  :  是v-bind的简写-->
     <!-- <childSon :username=username v-bind:age=age :firstname=firstname></childSon> -->
     <!--传入一个对象-->
-    <childSon v-bind="userdata" :userage="userage" @getMsg="getNum"></childSon>
+    <childSon2 v-bind="userdata" :userage="userage" @getMsg="getNum"></childSon2>
     <p>传递给子组件的值{{ userdata }}</p>
     <p>这是子组件传过来的消息{{ num }}</p>
     <button @click="visable">显示</button>

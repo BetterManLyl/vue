@@ -17,7 +17,11 @@ import store from '../page/store'
 import onclick from '../page/onclick'
 import v_key from '../page/v_key'
 import bookshop from '../page/bookshop'
-
+import takephoto from '../page/takephoto'
+import studycss from '../page/stylecss/studycss'
+import studycss2 from '../page/stylecss/studycss2'
+import jsfunction from '../page/jsfunction'
+import ComFather from '../page/components-types/ComFather'
 Vue.use(VueRouter)
 
 // const routes = [
@@ -60,6 +64,7 @@ Vue.use(VueRouter)
 export default new VueRouter({
   //该模式，地址栏不会有"#"
   mode:"history",
+  linkActiveClass:'active',
   routes: [
     {
       path: '/',
@@ -67,7 +72,7 @@ export default new VueRouter({
       component: First,
       children: [
         {
-          path: '/A1',
+          path: '/A1/:userId',
           component: A1
         },
         {
@@ -108,6 +113,31 @@ export default new VueRouter({
           path: '/error',
           name: "haha",
           component: ERROR,
+        },
+        {
+          path: '/takephoto',
+          name: "haha",
+          component: takephoto,
+        },
+        {
+          path: '/studycss',
+          name: "studycss",
+          component: studycss,
+        },
+        {
+          path: '/jsfunction',
+          name: "jsfunction",
+          component: jsfunction,
+        },
+        {
+          path: '/comfather',
+          name: "ComFather",
+          component: ComFather,
+        },
+        {
+          path: '/studycss2',
+          name: "studycss2",
+          component: studycss2,
         },
         //子路由的实现，注意子路由 同一个页面显示父页面和子页面
         {

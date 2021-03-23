@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .block {
+      /* width: 100px; */
+      height: 100px;
+      background-color: blue;
+    }
+
+    .block2 {
+      background-color: brown;
+    }
+
+    .input {
+      text-align: justify;
+      width: 200px;
+      height: 100px;
+    }
+
+    .changeBlock {
+      text-align: center;
+      /*把行内元素转化为块级元素**/
+      display: block;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+    .div_01 {
+      background-color: red;
+      /*把块级元素转化为行内元素**/
+      display: inline;
+    }
+
+    .span_01 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      /*把行内元素转化为行内块元素  可以设置宽高**/
+      display: inline-block;
+    }
+
+    .demo {
+      color: white;
+      display: block;
+      width: 200px;
+      height: 50px;
+      text-decoration: none;
+      text-align: center;
+      margin: auto 0;
+      /*将行高设置为文字的高度 就能实现文字的单行垂直居中*/
+      line-height: 50px;
+    }
+
+    a:hover {
+      background-color: orange;
+    }
+
+    .bg_image{
+        width: 500px;
+        height: 500px;
+        background-image: url("image/cell_title_img.jpg");
+        background-repeat: no-repeat;
+        background-position: center left;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="block">
+    我是一个div 块级标签
+    <p class="block2" style="text-align: center;">
+      <button>我是一个button</button>
+      <div>我是p里面的div</div>
+    </p>
+
+    <input class="input" type="text">
+    <input type="text">
+
+    <div>
+      <p style="text-align: center;">你好<a class="changeBlock" href="#">金星阿姨</a></p>
+    </div>
+
+    <div class="div_01">你好 我是块级元素 我要转化为行内元素</div>
+    <div class="div_01">你好 我是块级元素 我要转化为行内元素</div>
+
+    <div><span class="span_01">我是行内块元素</span><span class="span_01">我是行内块元素</span></div>
+
+
+    <div style="background-color: #333333;">
+      <a class="demo" href="#">手机电话卡</a>
+      <a class="demo" href="#">电视盒子</a>
+      <a class="demo" href="#">笔记本平板</a>
+      <a class="demo" href="#">出行 穿戴</a>
+      <a class="demo" href="#">智能路由器</a>
+      <a class="demo" href="#">健康 儿童</a>
+      <a class="demo" href="#">耳机 音响</a>
+    </div>
+    <div class="bg_image">
+    </div>
+  </div>
+</body>
+
+</html>

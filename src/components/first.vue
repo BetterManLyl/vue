@@ -1,7 +1,7 @@
-
 <template>
   <div>
-    <router-link to="/a">转向A页面</router-link>
+    <!--可以设置tag属性-->
+    <router-link tag="button" active-class="active" to="/a">转向A页面</router-link>
     <router-link to="/b">转向B页面</router-link>
     <router-link to="/error">转向404页面</router-link>
     <router-link to="/testpage">转向study页面</router-link>
@@ -13,9 +13,13 @@
     <router-link to="/store">store测试</router-link>
     <router-link to="/onclick">事件监听</router-link>
     <router-link to="/v_key">条件选择</router-link>
-     <router-link to="/bookshop">综合练习购物车</router-link>
+    <router-link to="/bookshop">综合练习购物车</router-link>
     <p @click="goPage" v-if="goBack">返回上一页</p>
-
+    <router-link to="/takephoto">拍照</router-link>
+    <router-link to="/studycss">学习css</router-link>
+    <router-link to="/studycss2">学习css</router-link>
+    <router-link to="/jsfunction">js常用方法总结</router-link>
+    <router-link to="/comfather">父子组件</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -36,3 +40,13 @@ export default {
   },
 };
 </script>
+<!--scoped只对当前页面有效果-->
+<style scoped>
+.router-link-active {
+  color: red;
+}
+p {
+  color: red;
+}
+</style>
+>

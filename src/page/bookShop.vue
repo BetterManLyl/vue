@@ -18,13 +18,11 @@
           <td>{{ item.name }}</td>
           <td>{{ item.date }}</td>
           <!--过滤器的使用-->
-          <td>{{ item.price | showPrice }}</td>
+          <td>{{ item.price }}</td>
           <td>
             <button @click="add(item)">+</button>
             {{ item.count }}
-            <button :disabled="item.count <= 1" @click="subtract(item)">
-              -
-            </button>
+            <button :disabled="item.count <= 1" @click="subtract(item)">-</button>
           </td>
           <td><button @click="remove(item)">移除</button></td>
         </tr>
@@ -33,6 +31,7 @@
 
     <h1>总价{{ countPrice | showPrice }}</h1>
     <button @click="clearList()">清空集合</button>
+    <button @click="testPromise">测试Promise</button>
   </div>
 </template>
 
@@ -70,6 +69,8 @@ export default {
           date: "2006-9",
         },
       ],
+
+      test: "",
     };
   },
   computed: {
@@ -109,6 +110,7 @@ export default {
     },
   },
   methods: {
+    test() {},
     //保留两位小数
     saveTwoPoint(value) {
       return "￥" + value.toFixed(2);
@@ -118,7 +120,24 @@ export default {
     },
     //加
     add(item) {
+      this.init();
       item.count++;
+    },
+    testPromise() {
+      new Promise((resolve, reject) => {
+        console.log("初始化");
+        resolve();
+      })
+        .then(() => {
+          throw new Error("有哪里不对了");
+          console.log("执行「这个」”");
+        })
+        .catch(() => {
+          console.log("执行「那个」");
+        })
+        .then(() => {
+          console.log("执行「这个」，无论前面发生了什么");
+        });
     },
     //减
     subtract(item) {
