@@ -1,9 +1,9 @@
-
 let testUrl = '';
-const countNum=100;
+const countNum = 100;
 if (true) {
-    testUrl = "你哈"
+  testUrl = "你哈"
 }
 export default {
-    testUrl,countNum
+  testUrl,
+  countNum
 }

@@ -3,12 +3,15 @@
     <!-- <img src="./assets/logo.png" /> -->
     <!-- <counter></counter>
 <my-componetn></my-componetn> -->
-    <router-view /><!--通过router注入模板-->
+    <keep-alive>
+      <router-view />
+      <!--通过router注入模板-->
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
+import Vue from "vue";
 //全局组件,在template中只能有一个div类型的根标签。放在Vue实例前面。
 // Vue.component(
 //   'my-componetn', {
@@ -30,10 +33,10 @@ import Vue from 'vue'
 //   }
 // })
 
-export default {//对外提供的接口
+export default {
+  //对外提供的接口
   name: "App",
 };
-
 </script>
 
 <style>

@@ -6,6 +6,8 @@ import router from './router'
 import axios from 'axios'
 import Vconsole from 'vconsole';
 import test from './common/js/test'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 let vConsole = new Vconsole();
 export default vConsole
 
@@ -22,7 +24,7 @@ Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
 Vue.prototype.$test = test
-
+Vue.use(ElementUI);
 //use
 Vue.use(loading)
 Vue.use(dialog);

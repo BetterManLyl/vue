@@ -11,7 +11,7 @@ let globalf = {
     }
   },
   created() {
-    console.log('created');
+    // console.log('created');
 
   },
 }

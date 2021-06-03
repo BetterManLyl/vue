@@ -20,6 +20,10 @@
     <router-link to="/studycss2">学习css</router-link>
     <router-link to="/jsfunction">js常用方法总结</router-link>
     <router-link to="/comfather">父子组件</router-link>
+    <router-link to="/iframee">Iframe的使用</router-link>
+    <br />
+    <router-link to="/promise">promise</router-link>
+    <router-link to="/computed">computed使用测试</router-link>
     <router-view></router-view>
   </div>
 </template>

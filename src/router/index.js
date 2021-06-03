@@ -22,6 +22,9 @@ import studycss from '../page/stylecss/studycss'
 import studycss2 from '../page/stylecss/studycss2'
 import jsfunction from '../page/jsfunction'
 import ComFather from '../page/components-types/ComFather'
+import iframee from '../page/iframe/iframee'
+import promise from '../page/promise/PromiseEx'
+import computed from '../page/computed/ComputedTe'
 Vue.use(VueRouter)
 
 // const routes = [
@@ -133,6 +136,21 @@ export default new VueRouter({
           path: '/comfather',
           name: "ComFather",
           component: ComFather,
+        },
+        {
+          path: '/iframee',
+          name: "iframee",
+          component: iframee,
+        },
+        {
+          path: '/promise',
+          name: "promise",
+          component: promise,
+        },
+        {
+          path: '/computed',
+          name: "computed",
+          component: computed,
         },
         {
           path: '/studycss2',
