@@ -4,6 +4,7 @@
     <h1>computed使用测试</h1>
     <p>{{ fullName }}</p>
     <button @click="test">测试</button>
+    <input ref="inputd" type="text" @focus="inFocus" />
   </div>
 </template>
 
@@ -36,6 +37,7 @@ export default {
           this.firstName = "chen";
           this.lastName = "manli";
         } else {
+          parseInt("11").toFixed;
           this.firstName = "li";
           this.lastName = "yuelong";
         }
@@ -44,7 +46,26 @@ export default {
   },
   methods: {
     test() {
-      this.fullName = "liyuelong";
+      //顶层对象赋值 顶层对象在浏览器环境中指的是window对象，在node环境中指的是global对象
+      window.a = "ssss";
+      console.log("a:" + a);
+
+      let f = this.inFocus();
+      f();
+      // this.fullName = "liyuelong";
+      let hasFocus = this.$refs.inputd.focus();
+    },
+    inFocus() {
+      let test1 = "222";
+      let test2 = test1;
+      test1 = "333";
+      console.log(test2);
+
+      const a = "11";
+      // console.log("input 获取焦点");
+      return function f() {
+        console.log("lyl 这是一个函数里面的函数");
+      };
     },
   },
 };

@@ -1,7 +1,9 @@
 <template>
   <div>
     <!--可以设置tag属性-->
-    <router-link tag="button" active-class="active" to="/a">转向A页面</router-link>
+    <router-link tag="button" active-class="active" to="/a"
+      >转向A页面</router-link
+    >
     <router-link to="/b">转向B页面</router-link>
     <router-link to="/error">转向404页面</router-link>
     <router-link to="/testpage">转向study页面</router-link>
@@ -24,7 +26,18 @@
     <br />
     <router-link to="/promise">promise</router-link>
     <router-link to="/computed">computed使用测试</router-link>
-    <router-view></router-view>
+    <router-link to="/arrowfunc">箭头函数</router-link>
+    <router-link to="router_save">导航守卫</router-link>
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive">
+        <!-- 这里是会被缓存的视图组件，比如 Home！ -->
+      </router-view>
+    </keep-alive>
+
+    <keep-alive>
+      <router-view v-if="!$route.meta.keepAlive"> </router-view>
+    </keep-alive>
+    <!-- 这里是不被缓存的视图组件，比如 Edit！ -->
   </div>
 </template>
 

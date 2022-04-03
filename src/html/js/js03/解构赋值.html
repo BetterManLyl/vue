@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    //1、两边的解构必须一致  let {a,b} = [2, 3] 不行
+    //2、右边必须是个东西    let {a,b} = {12,5} 不行
+    //3、赋值和解构同时完成  let {a,b}; {a,b}={name:'lyl'} 不行
+    let {
+      a,
+      b
+    } = {
+      a: '2',
+      b: '3'
+    };
+    console.log(a, b);
+
+    let obj = {
+      name: 'lyl',
+      age: 30,
+      sex: '男'
+    }
+
+    let {
+      name,
+      sex
+    } = obj;
+    console.log(name);
+
+
+
+    let [c, d] = [2, 3]
+    console.log(c, d);
+
+    let arr = [1, 2, 3, 4]
+    arr.forEach((item) => {
+      console.log('lyl', item);
+      if (item > 2) {
+        console.log('lyl', 'return');
+
+        return;
+      }
+    })
+
+    function show() {
+      for (let i = 0; i < arr.length; i++) {
+        console.log('lyl1',arr[i]);
+        
+        if (arr[i] > 2) {
+          console.log('lyl', arr[i]);
+          return;
+        }
+      }
+    }
+
+show();
+  </script>
+</body>
+
+</html>

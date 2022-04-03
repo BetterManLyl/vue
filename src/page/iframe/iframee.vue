@@ -1,40 +1,54 @@
 <template>
-  <div>
-    <iframe ref="iframe" src="../../html/1test1.html"> </iframe>
-    <loading></loading>
-    <el-switch v-model="value" active-color="#13ce66" inactive-color="#ff4949">
-    </el-switch>
+  <div id="container">
+    <div v-if="true" id="container2">
+      <iframe
+        id="iframeContent"
+        src="../../../static/1test1.html"
+        frameborder="0"
+      ></iframe>
+      <button @click="post">点击</button>
+    </div>
   </div>
 </template>
-
 <script>
 export default {
   data() {
     return {
-      iframeWin: {},
-      value: false,
+      scroll: "",
+      isShow: false,
+      url: "",
     };
   },
   mounted() {
-    //iframe的window对象
-    this.iframeWin = this.$refs.iframe.contentWindow;
+    let _this = this;
   },
   methods: {
-    loadfrom(val) {},
+    post() {
+      document
+        .getElementById("iframeContent")
+        .contentWindow.postMessage({ test: "Test" });
+    },
+    menu() {
+      this.scrollTop = document.getElementById("container2").scrollTop;
+      this.scrollHeight = document.getElementById("container2").scrollHeight;
+      if (this.offsetHeight + this.scrollTop - this.scrollHeight >= -1) {
+        alert("滑动到底部");
+        console.log("lyl：" + this.scrollTop + " lyl:" + this.scrollHeight);
+      }
+    },
   },
+  created() {},
 };
 </script>
 
-<style>
-.iframe {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+<style scoped>
+#container {
   width: 100%;
-  height: 100%;
-  background: #fff;
-  overflow-y: hidden;
+  background: #f00;
+}
+#container2 {
+  height: 500px;
+  background: #f0f;
+  overflow-y: scroll;
 }
 </style>

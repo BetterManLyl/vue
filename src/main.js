@@ -9,7 +9,7 @@ import test from './common/js/test'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 let vConsole = new Vconsole();
-export default vConsole
+
 
 //导入store
 import store from '../src/store'
@@ -17,7 +17,7 @@ import dialog from '../src/common/js/dialog'
 //使用全局的loading
 import loading from '../src/common/components/loading/loading'
 import ElementUi from 'element-ui'
-import  globalf from '../src/common/js/global.js'
+import globalf from '../src/common/js/global.js'
 
 //配置axios 全局使用  $后的名字为自定义
 Vue.prototype.$http = axios
@@ -30,6 +30,26 @@ Vue.use(loading)
 Vue.use(dialog);
 Vue.use(ElementUi);
 Vue.mixin(globalf);
+//定义全局自定义指令
+Vue.directive("test", {
+  bind(el) {
+    el.focus();
+    console.log('lyl bind');
+  },
+  inserted(el) {
+    el.focus();
+  },
+  unbind() {
+    console.log('lyl unbind');
+  }
+})
+
+function test11(){
+  console.log("lyl test11");
+}
+
+ 
+console.log("lyl main.js");
 // 图片转base64格式 挂载在全局
 Vue.prototype.$base64Img = (e) => {
   return new Promise(function (resolve, reject) { // 使用Promise进行异步处理
@@ -41,10 +61,14 @@ Vue.prototype.$base64Img = (e) => {
     const reader = new FileReader() // 实例化一个对象
     if (size > fileMaxSize) {
       e.target.value = '' // 内容清空
-      resolve({ err: '图片大小必须小于1M' })
+      resolve({
+        err: '图片大小必须小于1M'
+      })
     } else if (size <= 0) {
       e.target.value = '' // 内容清空
-      resolve({ err: '图片大小大小不能为0M' })
+      resolve({
+        err: '图片大小大小不能为0M'
+      })
     } else {
       reader.readAsDataURL(file) // 把图片文件对象转换base64
       reader.onload = function (e) {
@@ -64,6 +88,10 @@ new Vue({
   template: '<App/>',
 
 })
+export default{
+  test11,
+  vConsole
+}
 //全局组件,在template中只能有一个div类型的根标签。放在Vue实例前面。
 // Vue.component(
 //   'my-componetn', {

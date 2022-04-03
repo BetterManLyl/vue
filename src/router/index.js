@@ -25,6 +25,8 @@ import ComFather from '../page/components-types/ComFather'
 import iframee from '../page/iframe/iframee'
 import promise from '../page/promise/PromiseEx'
 import computed from '../page/computed/ComputedTe'
+import arrowfunc from '../page/arrowfunc/ArrowFunc.vue'
+import router_save from '../page/router_save/RouterSave.vue'
 Vue.use(VueRouter)
 
 // const routes = [
@@ -66,12 +68,13 @@ Vue.use(VueRouter)
 
 export default new VueRouter({
   //该模式，地址栏不会有"#"
-  mode:"history",
-  linkActiveClass:'active',
+  mode: "history",
+  linkActiveClass: 'active',
   routes: [
     {
       path: '/',
       name: 'first',
+      // redirect:false?'/':'/a',
       component: First,
       children: [
         {
@@ -143,6 +146,19 @@ export default new VueRouter({
           component: iframee,
         },
         {
+          path: '/router_save',
+          name: "router_save",
+          component: router_save,
+          meta: { keepAlive: true }, //true缓存 false不缓存 还需要在路由跳转里面设置keep-alive
+          beforeEnter: (to, from, next) => {
+            console.log("lyllylyl");
+            next((vm)=>{
+              console.log("lyllylyl",from);
+            });
+          }
+
+        },
+        {
           path: '/promise',
           name: "promise",
           component: promise,
@@ -156,6 +172,11 @@ export default new VueRouter({
           path: '/studycss2',
           name: "studycss2",
           component: studycss2,
+        },
+        {
+          path: '/arrowfunc',
+          name: "arrowfunc",
+          component: arrowfunc,
         },
         //子路由的实现，注意子路由 同一个页面显示父页面和子页面
         {

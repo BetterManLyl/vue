@@ -12,6 +12,7 @@
 
 <script>
 import Vue from "vue";
+
 //全局组件,在template中只能有一个div类型的根标签。放在Vue实例前面。
 // Vue.component(
 //   'my-componetn', {
@@ -36,10 +37,37 @@ import Vue from "vue";
 export default {
   //对外提供的接口
   name: "App",
+
+destroyed(){
+console.log("app destory");
+},
+  mounted() {
+    console.log("lyl width:" + document.documentElement.clientWidth);
+
+    document.addEventListener("message", this.testListener,false);
+    document.addEventListener("close",function(){
+      console.log("close");
+    })
+  },
+  destroyed() {
+    document.removeEventListener(this.testListener);
+  },
+  methods: {
+    testListener(e) {
+      console.log(e);
+      console.log("testListener");
+    },
+  },
 };
 </script>
 
 <style>
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

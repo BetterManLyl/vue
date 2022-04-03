@@ -4,6 +4,7 @@
     <p>{{ message }}</p>
     <button @click="changeMessage">修改值</button>
     <button @click="skipThree">跳转到组件三</button>
+    
   </div>
 </template>
 <script>
@@ -21,6 +22,7 @@ export default {
     console.log("created 2");
   },
   mounted() {
+     console.log((this.$parent));
     console.log("mounted 2");
   },
   methods: {

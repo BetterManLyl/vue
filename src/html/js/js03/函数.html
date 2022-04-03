@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">
+    点我
+  </button>
+</body>
+<script>
+  //1、一般函数
+  function show() {
+    console.log('this是', this);
+  }
+
+  let btn = document.getElementById('btn');
+  //2、回调函数
+  btn.onclick = this.show;
+
+  //测试回调函数
+  function test(callback) {
+    setTimeout(() => {
+      callback('test callback111')
+    }, 2000);
+  }
+
+  //箭头函数
+  let show1 = () => {
+    console.log('this是', this);
+  }
+  show.call('nihao');
+  show1.call('hello');
+  setTimeout(() => {
+    console.log("this 1 是",this);
+  }, 1000);
+
+  setTimeout(function(){
+    console.log("this 1 是",this);
+  }, 2000);
+
+  //测试回调函数
+  this.test(callback => {
+    console.log(callback);
+  })
+
+</script>
+
+</html>

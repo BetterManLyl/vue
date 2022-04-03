@@ -1,10 +1,15 @@
 <template>
-  <div>
-    <button @click="promise_01">测试promise</button>
-    <button @click="getPromiseResult">获取promise的返回值</button>
-    <button @click="getMorePromiseRes">获取多次处理的结果</button>
-    <button @click="getPromiseAll">获取all返回的结果</button>
-    <promise_01></promise_01>
+  <div class="shop_container">
+    <div class="main">
+      <button @click="promise_01">测试promise</button>
+      <button @click="getPromiseResult">获取promise的返回值</button>
+      <button @click="getMorePromiseRes">获取多次处理的结果</button>
+      <button @click="getPromiseAll">获取all返回的结果</button>
+      <button @click="list(obj)">遍历</button>
+      <button @click="lists(objs)">遍历2</button>
+      <button @click="rest()">rest参数</button>
+      <promise_01></promise_01>
+    </div>
   </div>
 </template>
 <script>
@@ -13,7 +18,78 @@ import utils from "@/common/js/utils.js";
 export default {
   components: { promise_01 },
   data() {
-    return {};
+    return {
+      isstop: false,
+      obj: {
+        name: "lyl",
+        like: [
+          {
+            name: "cml",
+          },
+          {
+            name: "cml1",
+          },
+          {
+            name: "cml2",
+          },
+          {
+            name: [
+              {
+                age: 15,
+              },
+              {
+                age: 16,
+              },
+              {
+                age: 17,
+              },
+              {
+                age: [
+                  {
+                    haha: "haha",
+                  },
+                  {
+                    haha: "xixi",
+                  },
+                  {
+                    haha: "gaga",
+                  },
+                  {
+                    haha: "houhou",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      objs: [
+        {
+          like: [
+            {
+              name: [
+                {
+                  age: [
+                    {
+                      haha: "haha",
+                    },
+                    {
+                      haha: "xixi",
+                    },
+                    {
+                      haha: "gaga",
+                    },
+                    {
+                      haha: "houhou",
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    };
   },
   methods: {
     //promise参数使用
@@ -77,11 +153,13 @@ export default {
      * 需要两次耗时任务都结束才能处理下一步结果的 需求
      */
     getPromiseAll() {
+      this.list(obj);
+
       Promise.all([
         new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve("promise 1");
-          }, 1000);
+          }, 5000);
         }),
         new Promise((resolve, reject) => {
           JSON;
@@ -96,6 +174,48 @@ export default {
       });
     },
 
+    list(obj) {
+      //遍历对象
+      for (let key in obj) {
+        //如果遍历的是个数组 继续遍历
+        if (Array.isArray(obj[key])) {
+          for (let i = 0; i < obj[key].length; i++) {
+            this.list(obj[key][i]);
+          }
+        }
+
+        console.log("lyl_1:" + JSON.stringify(obj[key]));
+      }
+    },
+    lists() {
+      //如果遍历的是个数组 继续遍历
+      for (let i = 0; i < obj[key].length; i++) {
+        this.list(obj[key][i]);
+      }
+    },
+
+    rest() {
+      this.rest1("1", "2", "3");
+      this.rest2();
+    },
+
+    rest1(data1, ...data) {
+      console.log("lyl", data);
+
+      data.forEach((element) => {
+        console.log("lyl", element);
+      });
+    },
+
+    rest2() {
+      let data1 = [1, 2, 3];
+      let data2 = [4, 5, "6"];
+      console.log("lyl", [...data1, ...data2]);
+      console.log("lyl", data1.concat(data2));
+      let data3 = data1.push(...data2);
+      console.log("lyl", data3);
+    },
+
     getPromise(key) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -108,3 +228,19 @@ export default {
   },
 };
 </script>
+<style>
+.shop_container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 100%;
+  background: fuchsia;
+  /* margin: 0 auto; */
+  line-height: 100%;
+}
+.main {
+  /* margin: auto; */
+}
+</style>

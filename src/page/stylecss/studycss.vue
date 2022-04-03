@@ -1,43 +1,30 @@
 <template>
   <div class="content">
-    <span class="test" @click="listTest()">学习css</span>
-    <!--多样式选择-->
-    <!--<p class="test content">你好</p>-->
-
     <div class="in_content1">
-      <!--<button class="btnAdd">添加</button>-->
-      <p class="test_align" @click="testclick">测试</p>
-    </div>
-    <div>
-      学习font
-      <div class="fontstyle">
-        <h1>标题大小</h1>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="fontstyle">设置字体样式</p>
-        <p class="setdecoration">设置字体样式</p>
-        <em>测试斜体</em>
+      <span class="test" @click="listTest()">学习css</span>
+      <!--多样式选择-->
+      <!--<p class="test content">你好</p>-->
 
-        <p>
-          <a class="nounderline" href="">百度一下 </a>
-        </p>
+      <div>
+        <!--<button class="btnAdd">添加</button>-->
+        <p class="test_align" @click="testclick">测试</p>
       </div>
+      <div>
+        学习font
+        <div class="fontstyle">
+          <h1>标题大小</h1>
+
+          <em>测试斜体</em>
+
+          <p>
+            <a class="nounderline" href="">百度一下 </a>
+          </p>
+        </div>
+      </div>
+      <button @click="show()">添加</button>
+      <p>{{ numbers }}</p>
+      <div v-show="isShow">测试computed属性</div>
     </div>
-    <button @click="show()">添加</button>
-    <p>{{ numbers }}</p>
-    <div v-show="isShow">测试computed属性</div>
   </div>
 </template>
 
@@ -95,17 +82,29 @@ export default {
 * {
   // color: blue;
 }
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
 .content {
   scroll-behavior: auto;
   margin: 0;
   padding: 0;
   width: 100%;
+  height: 100%;
   background: no-repeat;
+  background: fuchsia;
   // background-position: center top;
   background-position: 120px 50px;
   //背景不动
   background-attachment: fixed;
-  background-image: url("../../static/img/background.jpg");
+  .in_content1 {
+    height: 100%;
+    width: 100%;
+    background: gold;
+    position: absolute;
+  }
 
   .test {
     font-size: 16px;

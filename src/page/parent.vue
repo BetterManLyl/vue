@@ -4,14 +4,14 @@
     <!--  :  是v-bind的简写-->
     <!-- <childSon :username=username v-bind:age=age :firstname=firstname></childSon> -->
     <!--传入一个对象-->
-    <childSon2 v-bind="userdata" :userage="userage" @getMsg="getNum"></childSon2>
+    <!-- <childSon2 v-bind="userdata" :userage="userage" @getMsg="getNum"></childSon2> -->
     <p>传递给子组件的值{{ userdata }}</p>
     <p>这是子组件传过来的消息{{ num }}</p>
     <button @click="visable">显示</button>
     <button @click="invisable">隐藏</button>
     <mydialog class="test" v-show="dialog_visable" :title="title"></mydialog>
     <p v-on:click.stop="show = !show">点我</p>
-    <p v-for="item in list">{{ item }}</p>
+    <!-- <p v-for="item in list">{{ item }}</p> -->
     <p v-bind:class="{ active: isActive }">你好</p>
     <p :class="{ active: isActive }">你好</p>
 

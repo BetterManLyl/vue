@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="66666666666666">
     这是父组件
 
     <!-- <child1 ref="child1" :firstValue="firstValue" @firstMethod="firstMethod"></child1>
@@ -16,7 +16,10 @@
 
     <h1>测试子组件包含子组件</h1>
     <button @click="show">展示</button>
-    <child1 v-if="isShow" @hide="hide"></child1>
+    <button @click="change">修改父组件值，测试子组件是否修改</button>
+
+    <!--:testValue="testValue"-->
+    <child1 v-if="isShow" @hide="hide" :testObj="testObj"></child1>
   </div>
 </template>
 <script>
@@ -37,10 +40,51 @@ export default {
       pagetype: child1,
       step: true,
       isShow: false,
+      testValue: "你好",
+      testObj: {
+        name: "lyl",
+      },
     };
   },
+
+  beforeRouteEnter(to, from, next) {
+    console.log("lyl beforeRouteEnter:"+to+" from:"+from);
+    next((vm) => {
+      // 通过 `vm` 访问组件实例
+      console.log("lyl beforeRouteEnter");
+    });
+  },
+
+  beforeRouteLeave(to, from, next) {
+        console.log("lyl beforeRouteLeave:"+to+" from:"+from);
+
+   alert('当前修改还未保存！');     
+    next();
+  },
+
+  destroyed(){
+
+console.log("lyl destroyed");
+  },
+
+  mounted() {
+    console.log("0000");
+    console.log(this);
+    // window.postMessage("发送消息到testListener","*");
+    // 子页面发送消息
+   window.top.postMessage("close","*");
+      this.firstMethod('');
+  },
   methods: {
+
+    async test(){
+      return "222";
+    },
+
     firstMethod(value) {
+      this.test().then(data=>{
+        console.log("lyl data:"+data);
+      })
       console.log("value:" + value);
     },
     //通过refs方式调用自附件里面的方法
@@ -63,6 +107,10 @@ export default {
     },
     show() {
       this.isShow = !this.isShow;
+    },
+    change() {
+      this.testValue = Math.random() + "cml";
+      this.testObj.name = Math.random() + "cml";
     },
   },
 };

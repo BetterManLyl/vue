@@ -18,6 +18,7 @@
             鼠标悬停几秒钟查看此处动态绑定的提示信息！
         </span>
     </div>
+    <img src="@/static/img/background.jpg" alt="">
 
     <!--if条件语句-->
     <div id="app-3">
@@ -50,95 +51,147 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <script>
-        new Vue({
-            data: {
-                message: '123'
-            },
-            created: function () {
-                console.log('生命周期 created');
-            },
-            mounted: function () {
-                console.log('生命周期  mounted');
-            },
-            updated: function () {
-                console.log('生命周期  updated');
-            },
-            destroyed: function () {
-                console.log('生命周期  destroyed');
-            }
-        })
-        var app6 = new Vue({
-            el: '#app-6',
-            data: function () {
-                return {
-                    message: "hello vue"
-                }
-            },
-            //钩子函数 生命周期
-            created: function () {
-                console.log('123');
-            },
-        })
 
-        var app5 = new Vue({
-            el: '#app-5',
-            data: {
-                message: 'hello vue.js!'
-            },
-            methods: {
-                reverseMessage: function () {
-                    this.message = this.message.split('').reverse().join('');
-                }
-            }
-        })
+// debugger
+        let js = {"data":{"content":"{\"TaskId\":\"7308a107-6c81-48fb-9a12-395242742790\",\"data\":{\"InsrCode\":\"04\",\"TellerNo2\":\"12010308\",\"RsrvFld6\":\"\",\"TellerNo1\":\"12010308\",\"RsrvFld02\":\"\",\"RsrvFld01\":\"\",\"RsrvFld04\":\"\",\"RsrvFld03\":\"7308a107-6c81-48fb-9a12-395242742790\",\"RsrvFld05\":\"\"},\"cmdType\":\"readCard\",\"subType\":\"CLOUD_COUNTER\",\"type\":\"TE\",\"WsMsgId\":\"66b73bf8498142c584cb3349c2121135\"}"},"msgId":"9ac2899d-0cb0-4569-aca8-5440e5d0f580"}
 
 
-        //测试点击事件 添加数据
-        function testclick() {
-            if (list.length > 6) {
-                return
-            } else {
-                list.push({ text: '新项目' })
-            }
-        }
+        let js2 = JSON.stringify(js);
 
-        var list = [
-            { text: '学习vue' },
-            { text: 'html' },
-            { text: 'js' }
-        ]
+        console.log("lyl:"+(typeof js =="object"));
+        console.log("lyl:"+(typeof js =="string"));
 
-        var app4 = new Vue({
-            el: "#app-4",
-            data: {
-                todos: list
-            }
-        })
+        console.log("lyl:"+(typeof js2 =="object"));
+        console.log("lyl:"+(typeof js2 =="string"));
+        
+        // js = JSON.stringify(js);
+        // js = JSON.parse(js);
 
-        var app3 = new Vue({
-            el: '#app-3',
-            data: {
-                seen: true
-            }
-        })
 
-        var app2 = new Vue({
-            el: '#app-2',
-            data: {
-                message: '页面加载于 ' + new Date().toLocaleString()
-            }
-        })
-        var app = new Vue({
-            el: 'div',
-            data: function () {
-                message: '你好'
-            }
-        })
+        console.log("lyl"+js.msgId);
 
-        // 定义名为 todo-item 的新组件
-        Vue.component('todo-item', {
-            template: '<li>这是个待办项</li>'
-        })
+
+        // let num = 1;
+        // let numS = "2"
+        // console.log(typeof num == "number");
+        // console.log(typeof numS == "string");
+        // console.log(typeof null);
+        // console.log("null == undefined:" + (null == undefined));
+        // console.log(Number(0.1));
+        // console.log(parseInt(0.1));
+        // console.log("不是数值：" + isNaN("10"));//返回false 说明是数值
+        // console.log("不是数值：" + isNaN(false));//返回false 说明是数值
+        // console.log("不是数值：" + isNaN("test"));//返回false 说明是数值
+        // let age = "25";
+        // let name = "lyl"
+        // //使用模板字符串${}插值表达字符串拼接
+        // console.log(`${name}今年${age}岁了`);
+
+        // let str = "11";
+        // let arr = [1,2,3,4]
+        // console.log(typeof str == "string");
+        // console.log(typeof str == "object");
+        // console.log(typeof "11" == "string");
+        // console.log(typeof arr == "object");
+
+        // console.log("---------------");
+
+        // console.log(str instanceof Object);
+        // console.log(str instanceof String);
+        // console.log("11" instanceof String);
+        // console.log(arr instanceof Array);
+
+
+        // console.log("lyl log");
+        // new Vue({
+        //     data: {
+        //         message: '123'
+        //     },
+        //     created: function () {
+        //         console.log('生命周期 created');
+        //     },
+        //     mounted: function () {
+        //         console.log('生命周期  mounted');
+        //     },
+        //     updated: function () {
+        //         console.log('生命周期  updated');
+        //     },
+        //     destroyed: function () {
+        //         console.log('生命周期  destroyed');
+        //     }
+        // })
+        // var app6 = new Vue({
+        //     el: '#app-6',
+        //     data: function () {
+        //         return {
+        //             message: "hello vue"
+        //         }
+        //     },
+        //     //钩子函数 生命周期
+        //     created: function () {
+        //         console.log('123');
+        //     },
+        // })
+
+        // var app5 = new Vue({
+        //     el: '#app-5',
+        //     data: {
+        //         message: 'hello vue.js!'
+        //     },
+        //     methods: {
+        //         reverseMessage: function () {
+        //             this.message = this.message.split('').reverse().join('');
+        //         }
+        //     }
+        // })
+
+
+        // //测试点击事件 添加数据
+        // function testclick() {
+        //     if (list.length > 6) {
+        //         return
+        //     } else {
+        //         list.push({ text: '新项目' })
+        //     }
+        // }
+
+        // var list = [
+        //     { text: '学习vue' },
+        //     { text: 'html' },
+        //     { text: 'js' }
+        // ]
+
+        // var app4 = new Vue({
+        //     el: "#app-4",
+        //     data: {
+        //         todos: list
+        //     }
+        // })
+
+        // var app3 = new Vue({
+        //     el: '#app-3',
+        //     data: {
+        //         seen: true
+        //     }
+        // })
+
+        // var app2 = new Vue({
+        //     el: '#app-2',
+        //     data: {
+        //         message: '页面加载于 ' + new Date().toLocaleString()
+        //     }
+        // })
+        // var app = new Vue({
+        //     el: 'div',
+        //     data: function () {
+        //         message: '你好'
+        //     }
+        // })
+
+        // // 定义名为 todo-item 的新组件
+        // Vue.component('todo-item', {
+        //     template: '<li>这是个待办项</li>'
+        // })
     </script>
 </body>
 
