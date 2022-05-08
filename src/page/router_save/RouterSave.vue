@@ -2,24 +2,31 @@
   <div class="container">
     <div>
       <div>{{ message }}</div>
-      <button  @click="gtouchstart()" >计算宽高</button>
+      <button @click="gtouchstart()">计算宽高</button>
       <button @click="elevate2">计算宽高2</button>
-      <button  @click="getScreenSize">获取分辨率</button>
+      <button @click="getScreenSize">获取分辨率</button>
 
- <button @tap="tapClick()">tap事件</button>
+      <button @tap="tapClick()">tap事件</button>
 
       <div class="testdiv" v-show="false">
-        <div @tap="tapClick()" v-show="false" sstyle="position:absolute" @click.stop="click1()">
+        <div
+          @tap="tapClick()"
+          v-show="false"
+          sstyle="position:absolute"
+          @click.stop="click1()"
+        >
           事件冒泡
         </div>
         <div v-show="isShow">
-          <button  @touchstart="gtouchstart()" @click="clickMe">点击我</button>
+          <button @touchstart="gtouchstart()" @click="clickMe">点击我</button>
         </div>
       </div>
 
       <div>
-        <div  class="show1" @click="show1($event)">
-          <div @touchstart="gtouchstart()"  class="show2" @click="show2($event)">点击我呀</div>
+        <div class="show1" @click="show1($event)">
+          <div @touchstart="gtouchstart()" class="show2" @click="show2($event)">
+            点击我呀
+          </div>
         </div>
       </div>
     </div>
@@ -79,28 +86,46 @@ export default {
     next();
   },
   methods: {
-    tapClick(){
+    tapClick() {
       console.log("tapclick");
     },
     show1(e) {
       e.stopPropagation();
-      console.log("show1"+e.target);
+      console.log("show1" + e.target);
     },
     show2(e) {
-      console.log("classList:"+e.target.classList[0]);
+      console.log("classList:" + e.target.classList[0]);
       console.log("show2");
     },
     clickMe() {
-      
       console.log("clickMe");
     },
-    gtouchstart() {
+    async gtouchstart() {
       console.log("gtouchstart");
 
-      setTimeout(() => {
-        console.log("2000")
-      }, 2000);
+      // setTimeout(() => {
+      //   console.log("2000")
+      // }, 2000);
+
+      let test = await this.testP();
+
+      // new Promise((resolve,reject)=>{
+
+      // })
+
+      console.log("3000");
     },
+
+    async testP() {
+      return new Promise((resolve) => {
+        console.log("lyl peo");
+         setTimeout(() => {
+           console.log("lyl peo111");
+           resolve();
+         }, 2000);
+      });
+    },
+
     bodyTouchMove() {
       console.log("bodyTouchMove");
     },
@@ -143,11 +168,11 @@ export default {
       );
     },
     elevate2() {
-      let poseMessage={
-        type:"test",
-        name:"lyl test"
-      }
-      window.postMessage(poseMessage,"*");
+      let poseMessage = {
+        type: "test",
+        name: "lyl test",
+      };
+      window.postMessage(poseMessage, "*");
       let devicePixelRatio = window.devicePixelRatio;
       console.log("devicePixelRatio:" + devicePixelRatio);
 
