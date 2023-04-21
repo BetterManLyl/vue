@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效。 */
+    .box {
+        display: flex;
+        flex-direction: unset;
+        flex-wrap: wrap;
+        flex-flow: wrap;
+        justify-content: space-between;
+        align-items: center;
+        height: 200px;
+    }
+
+    p {
+        order: 3;
+        flex-grow: 10;
+        display: block;
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+        background: blue;
+    }
+
+    p:first-of-type {
+        order: 1;
+        flex-grow: 2;
+        display: block;
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+        background: blue;
+    }
+
+    p:last-of-type {
+        flex-grow: 2;
+        order: 1;
+        display: block;
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+        background: blue;
+    }
+</style>
+
+<body>
+    <!-- 
+    以下6个属性设置在容器上。
+   1、 flex-direction 属性决定主轴的方向（即项目的排列方向）。
+    row（默认值）：主轴为水平方向，起点在左端。
+    row-reverse：主轴为水平方向，起点在右端。
+    column：主轴为垂直方向，起点在上沿。
+    column-reverse：主轴为垂直方向，起点在下沿
+
+    
+    flex-wrap
+    flex-flow
+    justify-content
+    align-items
+    align-content -->
+    <div class="box">
+        <p>
+            111
+        </p>
+        <p>
+            222
+        </p>
+        <p>
+            333
+        </p>
+    </div>
+</body>
+
+</html>

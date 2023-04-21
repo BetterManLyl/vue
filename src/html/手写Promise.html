@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+    <div>
+        手写Promise
+    </div>
+    <script>
+
+
+        //1、基础架构
+        function myPromise(excutor) {
+            let self = this;
+            self.status = 'pending'//状态
+            self.value = null;//成功的结果
+            self.reason = null;//失败的结果
+            self.onFulfilledCallback = []
+            self.onRejectedCallback = []
+
+            //成功的回调
+            function resolve(value) {
+                console.log(789789)
+                console.log(value)
+                //4、状态处理 等待=》成功，失败（状态不可逆转）
+                if (self.status === "pending") {
+                    self.value = value
+                    self.status = "fulfilled"
+                    //7、状态改变，依次取出
+                    self.onFulfilledCallback.forEach(item => {
+                        console.log(item)
+                        item(value)
+                    })
+
+                }
+
+            }
+
+            //失败的回调
+            function reject(reason) {
+                if (self.status === "pending") {
+                    self.reason = reason
+                    self.status = "reject"
+                    self.onRejectedCallback.forEach(item => {
+                        item(reason)
+                    })
+                }
+
+            }
+
+            //3、立即执行一遍
+            try {
+                excutor(resolve, reject)
+            } catch (error) {
+                reject(error)
+            }
+
+        }
+        //2、then方法
+        myPromise.prototype.then = function (onFulfilled, onRejected) {
+            //5、状态改变 走.then
+            onFulfilled = typeof onFulfilled === "function" ?
+                onFulfilled : function (data) {
+                    resolve(data)
+                }
+
+            onRejected = typeof onRejected === "function" ?
+                onRejected : function (err) {
+                    throw err
+                }
+
+            //发布订阅模式 6
+            console.log(this.status)
+            if (this.status == "pending") {
+                // console.log(onFulfilled)
+                this.onFulfilledCallback.push(onFulfilled)
+                this.onRejectedCallback.push(onRejected)
+            }
+
+        }
+        let demo = new myPromise((resolve, reject) => {
+            console.log("你好啊")
+            setTimeout(() => {
+                resolve(123)
+            }, 1000);
+
+        })
+
+        demo.then(data => {
+            console.log(data)
+        })
+
+
+    </script>
+</body>
+
+</html>

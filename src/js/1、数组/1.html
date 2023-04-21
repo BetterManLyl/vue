@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //1、concat 数组合并 最后返回一个新的数组
+        let array1 = [1, 2, 3, 4]
+        let array2 = [9, 7, 8]
+
+        let array3 = array1.concat(array2, [6, 5, 43]);
+        console.log(array3);
+
+
+        //2、reverse 反转数组顺序 会改变原来的数组
+        let array4 = [1, 2, 3, 4]
+        let array5 = array4.reverse();
+        console.log(array4, array5);
+        console.log(array4 === array5);
+
+        //3、join 将数组转化成字符串 默认以","隔开
+        let array6 = [1, 2, 3, 4, 6]
+        let str = array6.join()
+        console.log(str);
+
+
+        //4、push 将参数添加到数组的末尾，并返回数组的长度
+        //pop 删除数组最后一项，并返回移除的项
+        let array7 = ["1", "3", "4"]
+        let length = array7.push("0")
+        console.log(array7, length);
+        let popitem = array7.pop()
+        console.log(array7, popitem);
+
+
+
+
+
+        //5、unshift 将参数添加到数组的开头，并返回数组的长度
+        //shift 删除原数组第一项  并返回移除的项
+        let array8 = [1, 3, 4, 5]
+        array8.unshift(0)
+        console.log(array8);
+        let shiftItem = array8.shift();
+        console.log(array8, shiftItem);
+
+
+        //6、slice  截取 并返回新的数组 参数1：开始截取的下标 参数2：结束截取的下标
+        let array9 = [1, 2, 3, 4, 5]
+        let sliceArr = array9.slice(2, 5);
+        let sliceArr2 = array9.slice(4)
+        console.log(sliceArr, sliceArr2);
+
+        //7、splice 可以实现删除 替换 插入操作
+        //参数1：从下标开始  参数2：删除个数
+        let array10 = [1,8,3,2,6,8,9,7,2,2,5]
+
+
+        // array10.splice(0, 2);
+
+        array10.splice(3, 4, "****");
+        let array10j = array10.join("")
+        console.log(array10);
+        console.log(array10j);
+
+        //8、sort 排序
+        let array11 = [3, 2, 1, 6, 78, 4]
+        //从大到小排序
+        array11.sort((a, b) => {
+            return a - b
+        })
+        console.log(array11);
+        //从小到大排序
+        array11.sort((a, b) => {
+            return b - a
+        })
+        console.log(array11);
+
+
+        //indexof 判断是否包含
+
+
+    </script>
+
+
+</body>
+
+</html>

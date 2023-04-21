@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        //map返回一个新的数组
+        let arr = [1, 2, 3, 4, 5]
+        let arr2 = arr.map((item) => {
+            return parseInt(item + "1")
+        })
+        console.log(arr2);
+
+        //foreach不能使用break和return
+        arr2.forEach(element => {
+            if (element == "11") {
+                return
+            }
+            console.log(element);
+
+        });
+
+
+        //filter 数组过滤 返回满足条件的数组集合
+        let arr3 = arr2.filter((item) => {
+            return item > 30
+        })
+        console.log(arr3);
+
+
+        console.log(arr2);
+
+
+        //every 判断数组里面元素是否都满足条件，如果都满足则返回true 否则返回fasle
+        let arr4 = arr2.every((item) => {
+            return item > 30
+        })
+
+        console.log(arr4);
+
+        //some 判断数组里面元素是否有一项满足条件，如果有则返回true，否则返回false
+        let arr5 = arr2.some((item) => {
+            return item > 30
+        })
+        console.log(arr5);
+
+    </script>
+</body>
+
+</html>

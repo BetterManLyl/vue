@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>如何让数据变得可观测</h1>
+    <script type="module">
+        import { Observer } from './observer.js';
+
+        let obser = new Observer({
+            name: '小明',
+            age: "18",
+            demo: {
+                study: '语文'
+            }
+        });
+        // console.log(obser.value.name)
+        // obser.value.name = "小花"
+        console.log(obser.value.demo.study)
+        obser.value.demo.study = "数学"
+
+        // let obj = {
+        //     age: "18"
+        // }
+        // let val = "20"
+        // Object.defineProperty(obj, "age", {
+
+        //     get() {
+        //         console.log(`获取被监听的值${val}`)
+        //         return val;
+        //     },
+        //     set(newVal) {
+        //         console.log(`设置被监听的值${newVal}`)
+        //         val = newVal
+
+        //     },
+        // })
+    </script>
+
+
+
+</body>
+
+</html>

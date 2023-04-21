@@ -3,7 +3,6 @@
     <p>测试组件的使用</p>
     <button @click="change()">点击修改</button>
     <p>父视图传值给组件：{{testnum}}</p>
-    <h1 v-text="localnum+'!'">你好</h1>
     <h1>{{localnum+"!"}}你好</h1>
     <p v-html="html"></p>
     <!-- <img v-show="isShow" src="../assets/logo.png" /> -->
@@ -41,7 +40,15 @@ export default {
   },
   created() {
     // this.localnum = this.testnum;
+    setTimeout(() => {
+      console.log('lyl0000');
+      
+      this.$parent.$router.go(-1)
+      this.$parent.$router.go(-1)
+    }, 5000);
   },
+  
+  
   methods: {
     change: function () {
       // var localnum = "";

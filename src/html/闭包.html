@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //https://blog.csdn.net/weixin_41192489/article/details/124312822
+        //闭包
+        //闭包的特点
+        //  1.被闭包函数访问的父级及以上的函数的局部变量（如范例中的局部变量 i ）会一直存在于内存中，不会被JS的垃圾回收机制回收。
+
+        // 2.闭包函数实现了对其他函数内部变量的访问。（函数内部的变量对外是无法访问的，闭包通过这种变通的方法，实现了访问。）
+
+        // 闭包就是将函数内部和函数外部连接起来的一座桥梁。
+        //https://blog.csdn.net/qq_40468450/article/details/125233364
+        function testbibao() {
+            let i = "你好";
+            function coni() {
+                console.log(i)
+            }
+            return coni;
+        }
+
+        // let aaa = testbibao()
+        // console.dir(aaa)
+        // aaa();
+
+
+
+        function a() {
+            let i = '初始值';
+            i = i + "—_执行a"
+            // 此处的函数b访问了父级函数a中的局部变量i,成为了一个闭包
+            function b() {
+                i = i + "_执行b"
+                console.log(i)
+            }
+            return b;
+        }
+        let c = a(); // 此时 i 的值为 ：初始值—_执行a
+        c()          // 此时 i 的值为 ：初始值—_执行a_执行b
+        c()          // 此时 i 的值为 ：初始值—_执行a_执行b_执行b
+        c()  
+    </script>
+</body>
+
+</html>

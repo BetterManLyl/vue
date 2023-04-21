@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div>
+        <p id="nihao">根据id获取dom</p>
+        <p class="nihao1">根据class获取dom</p>
+
+
+        <ul id="ulc">
+            <li>
+                1
+            </li>
+            <li>
+                2
+            </li>
+            <li>
+                3
+            </li>
+            <li>
+                4
+            </li>
+            <li>
+                5
+            </li>
+        </ul>
+
+    </div>
+
+    <script>
+
+        let pId = document.getElementById("nihao")
+        pId.style.background = "red"
+        console.log(pId);
+
+        let pclass = document.getElementsByClassName("nihao1")
+        pclass[0].style.background = "yellow"
+        console.log(pclass);
+        console.log(Array.isArray(pclass));
+
+
+        let ps = document.getElementsByTagName("p")
+        // ps[1].style.background = "blue"
+        console.log(ps[0]);
+
+        let ucl = document.getElementById('ulc');
+        let lis = ucl.getElementsByTagName("li")
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].style.background = "black"
+        }
+
+        let selector = document.querySelector("#ulc");
+        selector.style.background = "pink"
+        console.log(selector);
+
+
+        let selectors = document.querySelectorAll("li");
+        console.log(selectors);
+        
+
+
+    </script>
+</body>
+
+</html>

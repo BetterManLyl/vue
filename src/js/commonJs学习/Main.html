@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="./a.js"></script>
+    <script src="./b.js"></script>
+
+    <div>
+        <p id="age"></p>
+        <p id="name"></p>
+    </div>
+    <script>
+
+        document.getElementById("age").innerText = age
+
+        document.getElementById("name").innerText = name
+
+
+
+        let moudleABirth = appA.moduleA.getBirth();
+        console.log('moudleABirth 的 Birth：' + moudleABirth);
+
+        console.log(typeof appA.moduleC());
+        
+
+        console.log(appA.moduleC()());
+        
+
+        // console.log('moudleABirth 的 Birth：' + appA.module.a.getaaa());
+
+        console.log('b.js里面的age:' + age);
+
+    </script>
+
+</body>
+
+</html>

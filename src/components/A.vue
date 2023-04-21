@@ -50,6 +50,7 @@ export default {
     },
     testme: function (params) {
       console.log(params);
+      this.$router.push({ path: "/B" })
     },
     addItem() {
       let obj = {

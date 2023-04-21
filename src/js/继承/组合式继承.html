@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //组合式继承
+        function Parent() {
+            this.name = "lyl";
+        }
+        function Child() {
+            this.age = 18
+            //继承了Parent
+            Parent.call(this);
+        }
+
+
+        Child.prototype = new Parent();
+        let child = new Child();
+
+        console.log(child, child.name, child.age);
+        console.log(child);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--js继承的方式-->
+    <script>
+        //es6的继承
+        class Parent {
+            constructor() {
+                this.name = "lyl"
+            }
+        }
+        class Child extends Parent {
+            constructor() {
+                //需要加super()方法
+                super();
+                this.age = 18
+            }
+        }
+        let child = new Child();
+        console.log(child, child.age, child.name);
+
+    </script>
+</body>
+
+</html>

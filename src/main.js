@@ -19,6 +19,9 @@ import loading from '../src/common/components/loading/loading'
 import ElementUi from 'element-ui'
 import globalf from '../src/common/js/global.js'
 
+import base from "./css/base.css"
+// import base2 from "./css/base2.css"
+
 //配置axios 全局使用  $后的名字为自定义
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
@@ -47,6 +50,11 @@ Vue.directive("test", {
 function test11(){
   console.log("lyl test11");
 }
+
+document.addEventListener("touchend",function(){
+  // console.log("touchend")
+
+})
 
  
 console.log("lyl main.js");

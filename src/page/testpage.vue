@@ -20,7 +20,7 @@ export default {
     testcompon,
   },
   created() {
-    console.log("created");
+    console.log(this.$route.query.a);
   },
   mounted() {
     console.log("mounted");

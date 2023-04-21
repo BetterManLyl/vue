@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //1、原型可以解决什么问题
+        //对象共享属性和共享方法
+        //2、谁有原型
+        //函数拥有prototype  对象拥有__proto__
+        //3、对象查找属性或者方法的顺序
+        //先在对象本身查找-》构造函数查找-》对象的原型-》构造函数的原型中-》当前原型的原型中查找
+        //4、原型链是什么  就是把原型串联起来
+
+        //原型链的最顶端是null
+
+
+
+        function Fun() { }
+        let obj = new Fun();
+        //只有方法才有原型
+        console.log(Fun.prototype == obj.__proto__);
+        console.log(Fun.prototype, obj.__proto__);
+
+
+
+        function Fun1() {
+            // this.run = "0"
+        }
+        let obj1 = new Fun1();
+        // obj1.run = "4"
+        // Fun1.prototype.run = "1";
+        // obj1.__proto__.run = "2";
+        Object.prototype.run = "3";
+
+        console.log(obj1.run);
+
+        //原型链的最顶端是null
+        console.log(obj1.__proto__.__proto__.__proto__);
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -8,7 +8,13 @@
       <button @click="list(obj)">遍历</button>
       <button @click="lists(objs)">遍历2</button>
       <button @click="rest()">rest参数</button>
+      <p v-text="msg" @click="test('333', $event)" debounce="5000"></p>
+      <p>{{ msg }}</p>
       <promise_01></promise_01>
+
+
+      <button @touchstart.prevent="touchstart1" @touchend.prevent="touchend1" @click.prevent="btnClick1">测试点击事件</button>
+
     </div>
   </div>
 </template>
@@ -89,9 +95,43 @@ export default {
           ],
         },
       ],
+      msg: "v-text"
     };
   },
+  mounted() {
+    // console.log("1111111");
+    // document.addEventListener("touchend", function () {
+    //   console.log("touchend 3333");
+    // });
+  },
+  activated() {
+    // console.log("222");
+  },
   methods: {
+
+    touchstart1() {
+      console.log('touchstart0000');
+
+    },
+    touchend1() {
+      console.log('lyl00000');
+      
+      this.$router.go(-1)
+      console.log('touchend 0000');
+    },
+    btnClick1() {
+      console.log('btnClick 0000');
+
+    },
+
+
+
+    test(msg, event) {
+
+      console.log('ltltllt:' + msg);
+      console.log(event);
+
+    },
     //promise参数使用
     promise_01() {
       let json = {
@@ -240,6 +280,7 @@ export default {
   /* margin: 0 auto; */
   line-height: 100%;
 }
+
 .main {
   /* margin: auto; */
 }

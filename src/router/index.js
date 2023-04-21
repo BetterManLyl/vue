@@ -27,6 +27,10 @@ import promise from '../page/promise/PromiseEx'
 import computed from '../page/computed/ComputedTe'
 import arrowfunc from '../page/arrowfunc/ArrowFunc.vue'
 import router_save from '../page/router_save/RouterSave.vue'
+import one from '../page/One.vue'
+import two from '../page/Two.vue'
+import three from '../page/Three.vue'
+
 Vue.use(VueRouter)
 
 // const routes = [
@@ -67,8 +71,8 @@ Vue.use(VueRouter)
 // })
 
 export default new VueRouter({
-  //该模式，地址栏不会有"#"
-  mode: "history",
+  //history 该模式，地址栏不会有"#"
+  // mode: "history",
   linkActiveClass: 'active',
   routes: [
     {
@@ -195,5 +199,20 @@ export default new VueRouter({
       component: A
     },
 
+    {
+      path: '/one',
+      name: 'one',
+      component: one
+    },
+    {
+      path: '/two',
+      name: 'two',
+      component: two
+    },
+    {
+      path: '/three',
+      name: 'three',
+      component: three
+    },
   ]
 })

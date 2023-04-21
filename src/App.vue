@@ -3,10 +3,10 @@
     <!-- <img src="./assets/logo.png" /> -->
     <!-- <counter></counter>
 <my-componetn></my-componetn> -->
-    <keep-alive>
+    <!-- <keep-alive> -->
       <router-view />
       <!--通过router注入模板-->
-    </keep-alive>
+    <!-- </keep-alive> -->
   </div>
 </template>
 
@@ -48,11 +48,21 @@ console.log("app destory");
     document.addEventListener("close",function(){
       console.log("close");
     })
+    let num = this.addDecimals(2.1,2.1);
+    console.log("lyl num:"+num)
   },
   destroyed() {
     document.removeEventListener(this.testListener);
   },
   methods: {
+    addDecimals(a, b) { // 将小数转换为整数
+      let aInt = a * Math.pow(10, Math.max(a.toString().split('.')[1].length, b.toString().split('.')[1].length));
+      let bInt = b * Math.pow(10, Math.max(a.toString().split('.')[1].length, b.toString().split('.')[1].length));
+      // 计算整数之和 
+      let sumInt = aInt + bInt;
+      // 返回小数之和 
+      return sumInt / Math.pow(10, Math.max(a.toString().split('.')[1].length, b.toString().split('.')[1].length));
+    },
     testListener(e) {
       console.log(e);
       console.log("testListener");

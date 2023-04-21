@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        //call bind apply的区别
+        // 1、共同点  功能一致
+        // 可以改变this指向
+        // 语法 函数.call(),  函数.apply(), 函数.bind()
+
+        // 2、区别
+        // call和apply可以立即执行   bind不会立即执行，因为bind返回的是一个函数
+        //参数不同，apply第二个参数是数组，call和bind有多个参数需要写
+
+        var str = "你好"
+        var obj = {
+            str: "这是obj里面的str"
+        }
+        function Fun(name,age,sex) {
+            this.name = name
+            this.age = age;
+            this.sex = sex
+            console.log(this, this.str);
+        }
+
+        // Fun.call(obj);//立即执行
+        // Fun.apply(obj);//立即执行
+        // Fun.bind(obj)();//不会立即执行 bind返回的是一个函数 
+
+
+        //传递参数
+        // Fun.call(obj,"lyl",88,"男")
+        // Fun.apply(obj,["lyl",88,"男"])
+        Fun.bind(obj,"lyl",88,"男")();
+        // Fun()
+
+    </script>
+
+</body>
+
+</html>

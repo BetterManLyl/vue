@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="">
+
+
+    <script>
+
+        // for (let i = 0; i < 10; i++) {
+        //     setTimeout(() => {
+        //         console.log(i);
+        //     })
+        // }
+
+        // let prompt1 = prompt();
+        // console.log(prompt1);
+
+
+        let a = 10;
+        let b = a;
+        a = 11
+        console.log(a, b);
+
+        let oa = {
+            a: 11,
+            name: 'lyl'
+        }
+        let ob = {
+            a: 11,
+            name: "cml"
+        }
+        ob = oa;
+        ob.a = 999;
+        ob.name = "111"
+        console.log(oa, ob);
+
+
+        var aa = 0.1 + 0.2;
+        console.log(aa); //打印结果十分意外：0.30000000000000004
+
+        let nnn = null;
+        console.log(typeof nnn);
+        console.log(nnn + 1);
+
+
+        let nnnn = undefined;
+        console.log(typeof nnnn);
+        console.log(nnnn + 1);
+
+        let aaa = false;
+        console.log(aaa + 1);
+        let bbb = true
+        console.log(bbb + 1);
+
+        let strA = String(12);
+        console.log(strA);
+        let inta = 23;
+        console.log(typeof inta);
+        inta = inta.toString();
+        console.log(typeof inta);
+
+
+        let a1 = 1;
+        // let a11 = ++a1
+        console.log(++a1);
+
+
+        for (var i = 1; i <= 10; i++) { }
+        console.log(i);
+
+
+        let obj1 = {
+            name: 'lyl',
+            pro:{
+                age:18
+            }
+        }
+        let obj2 = Object.assign({}, obj1)
+        // obj2 = JSON.parse(JSON.stringify(obj1))
+        obj2.name = "cml"
+        obj2.pro.age = 20
+        console.log(obj1);
+
+
+        //立即执行函数
+        (function(){
+            alert(111)
+        })();
+
+
+    </script>
+</body>
+
+</html>

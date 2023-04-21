@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        let arr = [1,2,3,4,5]
+        let arr2 = [...arr]
+        console.log(arr2);
+        
+
+
+        function getDate() {
+            let date = new Date();
+            console.log(date);
+
+            let year = date.getFullYear();
+            let month = date.getMonth();
+            let day = date.getDay();
+
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds()
+
+            return year + "年" + month + "月" + day + "日" + "  " + hours + "时" + minutes + "分" + seconds + "秒"
+
+        }
+
+        console.log(getDate());
+
+
+    </script>
+</body>
+
+</html>

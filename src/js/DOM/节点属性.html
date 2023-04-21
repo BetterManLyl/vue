@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <div id="main">
+
+        </div>
+        <div>
+            <p id="p_1">111
+            </p>
+            <center>
+                <p>
+                    你好
+                </p>
+            </center>
+
+            <pre>
+
+                你好1
+                你叫什么名字
+            </pre>
+        </div>
+    </div>
+
+    <script>
+
+        let mainid = document.querySelector("#main");
+        mainid.style.background = "red"
+        console.log(mainid);
+
+        let mainid1 = document.getElementById("main");
+        console.log(mainid1);
+        console.log(typeof mainid1);
+
+
+
+        let main = document.getElementById("main");
+        main.innerText = "你好"
+        main.innerHTML = "你好1"
+
+
+        main.innerText = "<h1>你好</h1>"
+        main.innerHTML = "<h1>你好</h1>"
+
+
+        // let main3 = document.getElementById("main")
+
+        let ps = document.querySelectorAll("#p_1")
+        console.log(ps);
+
+
+    </script>
+</body>
+
+</html>

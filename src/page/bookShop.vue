@@ -32,6 +32,11 @@
     <h1>总价{{ countPrice | showPrice }}</h1>
     <button @click="clearList()">清空集合</button>
     <button @click="testPromise">测试Promise</button>
+
+
+    <p></p>
+<input type="text" v-model="testModel">{{ testModel }}
+
   </div>
 </template>
 
@@ -39,6 +44,7 @@
 export default {
   data() {
     return {
+      testModel:"",
       books: [
         {
           id: 1,

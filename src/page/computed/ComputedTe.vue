@@ -5,6 +5,17 @@
     <p>{{ fullName }}</p>
     <button @click="test">测试</button>
     <input ref="inputd" type="text" @focus="inFocus" />
+
+    <p>{{ fullName }}</p>
+    <p>{{ fullName }}</p>
+    <p>{{ fullName }}</p>
+    <p>{{ fullName }}</p>
+
+    <p>{{ getfullName() }}</p>
+    <p>{{ getfullName() }}</p>
+    
+   
+
   </div>
 </template>
 
@@ -45,7 +56,12 @@ export default {
     },
   },
   methods: {
+    getfullName() {
+      console.log("getfullName")
+      return this.firstName + this.lastName;
+    },
     test() {
+      this.firstName = "cml"
       //顶层对象赋值 顶层对象在浏览器环境中指的是window对象，在node环境中指的是global对象
       window.a = "ssss";
       console.log("a:" + a);
@@ -70,3 +86,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+p{
+  /* color: black; */
+}
+</style>

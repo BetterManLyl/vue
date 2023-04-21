@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>原型与原型链</h1>
+    <script>
+        //https://blog.csdn.net/Android062005/article/details/125099657
+        //原型 prototype => 函数特有
+        //原型链 _proto_  => [[prototype]]
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        let obj = function () { }
+        obj.prototype.name = "111"
+        console.dir(obj)
+        Person.prototype.species = '人类';
+        Person.prototype.say = function () {
+            console.log("Hello");
+        }
+        console.log('');
+        console.dir('');
+
+        let per1 = new Person('xiaoming', 20);
+        let per2 = new Person('xiaohong', 19);
+
+        console.log(per1.__proto__  === Person.prototype);
+        
+        let obj1 = {}
+        console.dir(Object);
+        
+
+
+
+        console.log(per1.species); // 人类 
+        console.log(per2.species); // 人类
+
+        per1.say(); // Hello
+        per2.say(); // Hello
+
+
+
+        // let arr = [1,2,3,4,5,6]
+        // arr.splice(1,4);
+        // console.log(arr);
+        
+
+
+    </script>
+</body>
+
+</html>

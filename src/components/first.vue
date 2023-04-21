@@ -1,9 +1,7 @@
 <template>
   <div>
     <!--可以设置tag属性-->
-    <router-link tag="button" active-class="active" to="/a"
-      >转向A页面</router-link
-    >
+    <router-link tag="button" active-class="active" to="/one">转向A页面</router-link>
     <router-link to="/b">转向B页面</router-link>
     <router-link to="/error">转向404页面</router-link>
     <router-link to="/testpage">转向study页面</router-link>
@@ -28,6 +26,7 @@
     <router-link to="/computed">computed使用测试</router-link>
     <router-link to="/arrowfunc">箭头函数</router-link>
     <router-link to="router_save">导航守卫</router-link>
+    <button @click="skip">跳转</button>
     <keep-alive>
       <router-view v-if="$route.meta.keepAlive">
         <!-- 这里是会被缓存的视图组件，比如 Home！ -->
@@ -48,12 +47,30 @@ export default {
       goBack: false,
     };
   },
+  
+  created(){
+    let arry = [1,2,3,4]
+
+    console.log(...arry)
+
+    let num2 = [...arry];
+
+ console.log(num2)
+  },
   methods: {
     goPage() {
       // this.$router.push({path:'/A1'});
       // this.$router.go(-1);
       this.$router.push({ path: "/A1" });
     },
+    skip() {
+      this.$router.push({
+        path: '/testpage', query: {
+          a: '1'
+        }
+      })
+
+    }
   },
 };
 </script>
@@ -62,6 +79,7 @@ export default {
 .router-link-active {
   color: red;
 }
+
 p {
   color: red;
 }
