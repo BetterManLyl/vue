@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container" style="background:#CCC; height:300px">
+        <marquee id="marquee_marquee" direction=up scrolldelay="2" scrollamount="2" loop="-1" behavior="scroll"
+            hspace="20" vspace="5" onMouseOver="this.stop()" color="#f00" onMouseOut="this.start()" width="300px"
+            height="30px">
+
+            <p>恭喜 135****2801会员成功。</p>
+            <p>恭喜 138****2251会员成功。</p>
+            <p>恭喜 159****3368会员成功。</p>
+            <p>恭喜 135****2287会员成功。</p>
+            <p>恭喜 155****2567会员成功。</p>
+            <p>恭喜 152****8967会员成功。</p>
+            <p>恭喜 139****5468会员成功。</p>
+        </marquee>
+
+
+        <divc class="test">
+            <div class="test_sc">
+                <p>恭喜 135****2801会员成功111111111111111。</p>
+                <p>恭喜 138****2251会员成功。</p>
+                <p>恭喜 159****3368会员成功。</p>
+                <p>恭喜 135****2287会员成功。</p>
+                <p>恭喜 155****2567会员成功。</p>
+                <p>恭喜 152****8967会员成功。</p>
+                <p>恭喜 139****5468会员成功。</p>
+                <p>恭喜 135****2801会员成功。</p>
+                <p>恭喜 138****2251会员成功。</p>
+                <p>恭喜 159****3368会员成功。</p>
+                <p>恭喜 135****2287会员成功。</p>
+                <p>恭喜 155****2567会员成功。</p>
+                <p>恭喜 152****8967会员成功。</p>
+                <p>恭喜 139****5468会员成功。</p>
+                <p>恭喜 135****2801会员成功。</p>
+                <p>恭喜 138****2251会员成功。</p>
+                <p>恭喜 159****3368会员成功。</p>
+                <p>恭喜 135****2287会员成功。</p>
+                <p>恭喜 155****2567会员成功。</p>
+                <p>恭喜 152****8967会员成功。</p>
+                <p>恭喜 139****5468会员成功。</p>
+
+            </div>
+    </div>
+
+    </div>
+</body>
+
+<script>
+
+    let isStop = false;
+    let marquee = document.getElementById("marquee_marquee");
+
+    window.onload = function () {
+        setInterval(() => {
+            if (!isStop) {
+                marquee.stop();
+                isStop = true;
+            } else {
+                isStop = false;
+                marquee.start();
+            }
+        }, 1000)
+    }
+
+
+
+
+
+
+</script>
+<style>
+    .container::-webkit-scrollbar {
+        display: none
+    }
+
+    .test {
+        display: flex;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .test_sc {
+        width: 100%;
+        overflow: scroll;
+        height: 100%;
+        background: yellow;
+
+    }
+
+    .test_sc ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* .test_sc ::-webkit-scrollbar {
+        display: none;
+    } */
+
+    p {
+        white-space: nowrap;
+    }
+</style>
+
+</html>

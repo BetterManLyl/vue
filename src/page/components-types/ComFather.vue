@@ -39,6 +39,16 @@ import child3 from "./Child3";
 import child4 from "./Child4";
 import a from "../mixin/amix";
 import b from "../mixin/bmix";
+
+
+function testSc(){
+  console.log('lyl comfather');
+  
+
+}
+
+testSc();
+
 export default {
   components: {
     child1,
@@ -61,27 +71,29 @@ export default {
     };
   },
 
-  beforeRouteEnter(to, from, next) {
-    console.log("lyl beforeRouteEnter:" + to + " from:" + from);
-    next((vm) => {
-      // 通过 `vm` 访问组件实例
-      console.log("lyl beforeRouteEnter");
-    });
+  // beforeRouteEnter(to, from, next) {
+  //   console.log("lyl beforeRouteEnter:" + to + " from:" + from);
+  //   next((vm) => {
+  //     // 通过 `vm` 访问组件实例
+  //     console.log("lyl beforeRouteEnter");
+  //   });
 
-  },
+  // },
 
-  beforeRouteLeave(to, from, next) {
-    console.log("lyl beforeRouteLeave:" + to + " from:" + from);
+  // beforeRouteLeave(to, from, next) {
+  //   console.log("lyl beforeRouteLeave:" + to + " from:" + from);
 
-    alert("当前修改还未保存！");
-    next();
-  },
+  //   alert("当前修改还未保存！");
+  //   next();
+  // },
 
   destroyed() {
     console.log("lyl destroyed");
   },
 
   mounted() {
+
+    testSc();
 
     console.log('测试mixa:'+this.name);
     

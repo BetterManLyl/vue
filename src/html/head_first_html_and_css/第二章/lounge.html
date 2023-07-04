@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>head first lounge</title>
+
+    <style>
+        a {
+            list-style: none;
+            /* text-decoration-line: none; */
+
+        }
+
+        a:link {
+            width: calc("40%"-40px);
+            color: red;
+        }
+
+        a:visited {
+            color: red;
+        }
+        img{
+            width: calc(10% - 110px);
+            /* height: 400px; */
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>welcome to the New and Imporved Head First Lounge</h1>
+    <img src="../../../assets/logo.png" alt="">
+    <p>Join us any evening for refreshing
+
+        <a href="../第一章/style.html">exlixirs</a>,
+        conversation and maybe a game or two of
+        <em>Dance Dance Revolution </em>.
+        Wireless access is always provided;
+        BYOWS (Bring your own web server).
+        <q>你好，你叫什么名字</q>
+    </p>
+
+    <blockquote>
+        hahahha
+        <q>ddd</q>
+        hhahhah
+    </blockquote>
+
+    <time></time>
+
+
+
+    <h2>Directions</h2>
+    <p>
+        You'll find us right in the center of downtown Webville .if you need help finding us ,
+        check out our <a href="../第一章/style.html">detailed Directions</a>
+        Come join us!
+    </p>
+
+
+
+
+    <script>
+
+
+
+        //@param number
+        //@return 00:00:00
+        function setHis(times = 0) {
+            if (typeof times === 'number') {
+                if (times <= 0) {
+                    return '00:00:00';
+                } else {
+                    let hh = parseInt(times / 3600); //小时
+                    let shh = times - hh * 3600;
+                    let ii = parseInt(shh / 60);
+                    let ss = shh - ii * 60;
+                    return (hh < 10 ? '0' + hh : hh) + ':' + (ii < 10 ? '0' + ii : ii) + ':' + (ss < 10 ? '0' + ss : ss);
+                }
+            } else {
+                return '00:00:00';
+            }
+        }
+
+
+
+        console.log(second(600));
+
+
+
+        let time = 0
+        setInterval(() => {
+            time += 1
+            let se = setHis(time);
+            console.log(se);
+
+        }, 5000)
+        function second(time) {
+            let m = parseInt((time / 60))
+            m = m < 10 ? "0" + m : m
+            let s = parseInt(time % 60)
+            s = s < 10 ? "0" + s : s
+            return m + ":" + s
+        }
+
+
+        let arr = [1, 2, 3, 4, 500]
+
+        let test = arr.filter(item =>
+            item > 3
+        )
+        console.log(test.join(","));
+
+
+
+        let obj = {
+            ob1: {
+                name: "lyl"
+
+            },
+            ob2: {
+                name: "cml"
+
+            },
+            ob3: {
+                name: "lyl111",
+                ob33: {
+                    name: "lyl333",
+                }
+            }
+        }
+
+        for(let item in obj){
+            console.log('lyl:'+JSON.stringify(item));
+        }
+
+    </script>
+
+</body>
+
+</html>

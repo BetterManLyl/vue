@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+
+
+
+    </div>
+    <script>
+
+        //-----------------
+        let lesson = [
+            { title: '媒体查询响应式布局' }, { title: 'FLEX 弹性盒模型' }, { title: 'GRID 栅格系统' }
+        ];
+
+        function template() {
+            return `<ul>
+                你好${lesson.map((item) => {
+                return `<li>${item.title}</li>`
+            }).join('')}
+                </ul>`
+        }
+
+        document.body.innerHTML = template();
+
+        function show(title) {
+            return "lyl"
+        }
+
+        console.log(`112+${show()}`);
+
+
+        //-----------------
+        let lessons = 'css';
+        let web = '后盾人';
+        tag`访问${web}学习${lessons}前端知识`;
+
+        function tag(strings, ...values) {
+            console.log(strings); //["访问", "学习", "前端知识"]
+            console.log(values); // ["后盾人", "css"]
+        }
+
+
+        //-----------------
+        const words = ["php", "css"];
+        const title = "我爱在后盾人学习php与css知识";
+        let status = words.some(word => title.includes(word));
+        status = words.some((word) => {
+            return title.includes(word)
+        })
+        console.log(status);
+
+        let name = "hdcms";
+        console.log(name.split(""));
+
+
+        //-----------------
+        console.log(parseInt('  99houdunren'));	//99
+        console.log(1.556.toFixed(2)); //1.56
+
+
+
+        //-----------------
+        let arrs = [1, 2, 3]
+        arrs.unshift("B");
+        arrs.unshift("A")
+        console.log(arrs);
+        let arr = [];
+        arr.push(arrs[0])
+        arr.push(arrs[1])
+        console.log(arr);
+
+
+        //-----------------
+        let [a, ...b] = ['后盾人', 'houdunren', 'hdcms'];
+        console.log(b);
+
+
+        //-----------------
+        let arr2 = [1, "后盾人", "hdcms"];
+        arr2[arr2.length] = 'houdunren.com';
+        console.log(arr2); //[1, "后盾人", "hdcms", "houdunren.com"]
+
+
+    </script>
+</body>
+
+</html>

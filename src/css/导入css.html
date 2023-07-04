@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--通过link方式导入css-->
+    <!-- <link rel="stylesheet" href="./base.css" type="text/css"> -->
+</head>
+
+<body>
+    <div class="container">
+        <!--通过style内部样式-->
+        <p style="color: black;">你好</p>
+        <h1>你好</h1>
+        <h2>你好</h2>
+        <p class="p_">今天的天气不错</p>
+
+        <h1 class="no_wrap">1111111111111111111111</h1>
+        <h1 class="no_wrap1">
+            后盾人自2010年创立至今，免费发布了大量高质量视频教程，视频在优酷、土豆、酷六等视频网站均有收录，很多技术爱好者受益其中。除了免费视频外，后盾人还为大家提供了面授班、远程班、公益公开课、VIP系列课程等众多形式的学习途径。后盾人有一群认真执着的老师，他们一心为同学着想，将真正的知识传授给大家是后盾人永远不变的追求。
+        </h1>
+
+
+        <p class="test_2">houdunren.com</p>
+
+        <div class="test_3">
+
+        </div>
+        <div class="float_1">
+
+        </div>
+
+
+        <p>
+            <span class="shape"></span>
+            后盾人自2010年创立至今，免费发布了大量高质量视频教程，视频在优酷、土豆、酷六等视频网站均有收录，很多技术爱好者受益其中。
+            除了免费视频外，后盾人还为大家提供了面授班、远程班、公益公开课、VIP系列课程等众多形式的学习途径。后盾人有一群认真执着的老师，他们一心为同学着想，将真正的知识传授给大家是后盾人永远不变的追求。
+          </p>
+    </div>
+</body>
+<style>
+    /* 通过import导入 */
+    @import url(./base.css);
+    .container{
+        overflow: scroll;
+    }
+
+    .float_1 {
+        float: right;
+        width: 100px;
+        height: 100px;
+        background: blue;
+    }
+
+    .test_3 {
+        width: 200px;
+        height: 200px;
+        /* border: 1px solid #f00; */
+        border-style: outset solid dotted double;
+        border-color: #f00;
+    }
+
+    .test_2 {
+        border: solid 10px #ddd;
+        height: 60px;
+        width: 200px;
+        padding: 50px;
+        box-sizing: border-box;
+    }
+
+    /* 选择所有元素 */
+    * {
+        /* font-size: 50px; */
+    }
+
+    /* 选择多个元素 */
+    h1,
+    h2 {
+        color: aqua;
+    }
+
+    .p_ {
+        color: brown;
+    }
+
+    /* 省略号 */
+    .no_wrap {
+        width: 200px;
+        border: solid 1px blueviolet;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .no_wrap1 {
+        width: 200px;
+        border: solid 1px blueviolet;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+</style>
+
+</html>

@@ -27,15 +27,7 @@
     <router-link to="/arrowfunc">箭头函数</router-link>
     <router-link to="router_save">导航守卫</router-link>
     <button @click="skip">跳转</button>
-    <keep-alive>
-      <router-view v-if="$route.meta.keepAlive">
-        <!-- 这里是会被缓存的视图组件，比如 Home！ -->
-      </router-view>
-    </keep-alive>
-
-    <keep-alive>
-      <router-view v-if="!$route.meta.keepAlive"> </router-view>
-    </keep-alive>
+    <router-view > </router-view>
     <!-- 这里是不被缓存的视图组件，比如 Edit！ -->
   </div>
 </template>

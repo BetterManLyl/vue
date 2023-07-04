@@ -12,36 +12,35 @@
     .box {
         display: flex;
         flex-direction: unset;
-        flex-wrap: wrap;
-        flex-flow: wrap;
-        justify-content: space-between;
-        align-items: center;
+        /* flex-wrap: wrap;
+        flex-flow: wrap; */
+        /* justify-content: space-between; */
+        /* align-items: center; */
         height: 200px;
     }
 
-    p {
-        order: 3;
-        flex-grow: 10;
-        display: block;
+    p:first-of-type {
+        flex-grow: 2;
+        /* display: block; */
         margin: 10px;
         width: 100px;
         height: 100px;
         background: blue;
     }
 
-    p:first-of-type {
-        order: 1;
-        flex-grow: 2;
-        display: block;
+    p {
+        flex-grow: 10;
+        /* display: block; */
         margin: 10px;
         width: 100px;
         height: 100px;
         background: blue;
     }
+
+
 
     p:last-of-type {
         flex-grow: 2;
-        order: 1;
         display: block;
         margin: 10px;
         width: 100px;

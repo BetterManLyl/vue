@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>轮播 滚动效果</title>
+    <style>
+        
+        #scroll {
+            margin: 0;
+            padding: 2px 0;
+            list-style: none;
+            width: 300px;
+            height: 18px;
+            overflow: hidden;
+            border: 1px #e5e5e5 solid;
+            font-size: 16px;
+            color: #f00;
+        }
+
+        #scroll li {
+            margin: 0;
+            padding: 0 4px;
+            font-size: 12px;
+            height: 18px;
+            line-height: 18px;
+            width: 600px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function dMarquee(id) {
+                let speed = 20; //速度
+                let stop = 1000; //停止时间
+
+                let ul = document.getElementById(id);//获取ul元素
+                let rows = ul.getElementsByTagName('li').length;//获取li个数
+                console.log(rows);
+                
+                let height = ul.getElementsByTagName('li')[0].offsetHeight;//取得第一个li的高度
+                ul.innerHTML += ul.innerHTML;//获取所有li
+                console.log('lyl 000');
+                
+                let timeID = false;//setTime的时间标示
+                let play = function () { //移动方法
+                    ul.scrollTop++;//移动滚动条
+                    //移动到底的时候恢复为零
+                    console.log('lyl scrollTop:'+ul.scrollTop);
+                    
+                    if (ul.scrollTop === rows * height) {
+                        ul.scrollTop = 0;
+                    }
+                    //每次滚动
+                    if (ul.scrollTop % height === 0) {
+                        timeID = setTimeout(play, stop);
+                    } else {
+                        timeID = setTimeout(play, speed);
+                    }
+                }
+                timeID = setTimeout(play, stop);
+                ul.onmouseover = function () {
+                    clearTimeout(timeID);
+                }
+                ul.onmouseout = play;
+            }
+
+            dMarquee('scroll')
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="scroll">
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Amet hic ipsum offices vitae!</li>
+    </ul>
+</body>
+
+</html>

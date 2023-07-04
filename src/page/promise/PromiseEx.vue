@@ -21,6 +21,16 @@
 <script>
 import promise_01 from "./Promise_01";
 import utils from "@/common/js/utils.js";
+
+
+function test11(){
+  console.log('lyl promise test');
+}
+
+test11();
+
+
+
 export default {
   components: { promise_01 },
   data() {
@@ -99,6 +109,9 @@ export default {
     };
   },
   mounted() {
+    console.log('lyl 000000');
+    
+    test11();
     // console.log("1111111");
     // document.addEventListener("touchend", function () {
     //   console.log("touchend 3333");

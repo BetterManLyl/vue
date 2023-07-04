@@ -1,12 +1,21 @@
 <template>
   <div>
     <button @click="twoFunc()">测试</button>
-    <input :class="{isActive:true}" v-test />
+    <input :class="{ isActive: true }" v-test />
     <div>
       <p v-for="(item, index) in testlist" :key="index">
         {{ item.name }}
       </p>
     </div>
+
+    <input @change="change" v-model="searchKeyword" />
+
+
+      <div v-for="itme of searchlists" v-html="itme">
+
+      </div>
+
+
   </div>
 </template>
 
@@ -18,6 +27,12 @@ import main from "@/main.js"
 export default {
   data() {
     return {
+      lists: [
+        "This is a sample text for demonstration purpose only", "This is a sample text for demonstration purpose only"
+      ],
+      searchlists: [],
+      text: 'This is a sample text for demonstration purpose only.',
+      searchKeyword: '',
       testarr: [1, 2, 3, 4],
       test2: "你好",
       testlist: [
@@ -36,7 +51,37 @@ export default {
       ],
     };
   },
-   
+
+
+
+  computed: {
+    highlightedText() {
+      if (this.searchKeyword) {
+        console.log('lyl ' + this.searchKeyword);
+
+        let pattern = new RegExp(this.searchKeyword, 'gi');
+        this.lists.forEach((item) => {
+          if (item.indexOf(this.searchKeyword) > -1) {
+            let highlighted = this.text.replace(pattern, `<span class="highlight">$&</span>`);
+            this.searchlists.push(highlighted)
+            console.log(this.searchlists);
+
+          }
+        })
+
+
+        // console.log(highlighted);
+
+        return highlighted;
+      } else {
+        return this.text;
+      }
+    }
+  },
+
+
+
+
   created() {
     // this.testlist[0].name = "test";
     let item = {
@@ -62,8 +107,21 @@ export default {
     //   console.log("lyl 2000s");
     // }, 2000);
   },
-  
+
   methods: {
+    change(val) {
+      console.log('lyl ' + this.searchKeyword);
+      let pattern = new RegExp(this.searchKeyword, 'gi');
+      this.searchlists = []
+      this.lists.forEach((item) => {
+        if (item.indexOf(this.searchKeyword) > -1) {
+          let highlighted = this.text.replace(pattern, `<span class="highlight">$&</span>`);
+          this.searchlists.push(highlighted)
+          console.log(this.searchlists);
+
+        }
+      })
+    },
     oneFunc() {
       var f = (v) => {
         console.log("oneFunc");
@@ -113,4 +171,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+.highlight {
+  background-color: yellow;
+}
+</style>
